@@ -1,0 +1,6 @@
+{
+	"title": "$:/plugins/cjrk68/moviesearch",
+	"description": "looking for movies?",
+	"author": "ChristianJurke",
+	"core-version": ">=5.0.0"
+}

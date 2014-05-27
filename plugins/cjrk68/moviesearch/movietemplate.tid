@@ -1,0 +1,8 @@
+title: $:/plugins/cjrk68/moviesearch/movietemplate
+type: text/vnd.tiddlywiki
+
+<img src={{!!picture}} style="float:left;"/>
+<$button message="tw-delete-tiddler">Delete</$button><br />
+{{!!description}}
+
+<$youtube vid={{!!trailer}}>
