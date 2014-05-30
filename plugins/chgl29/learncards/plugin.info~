@@ -1,6 +1,0 @@
-{
-	"title": "$:/plugins/chgl29/learncards",
-	"description": "Learncards for TiddlyWiki",
-	"author": "Christian Heigele",
-	"core-version": ">=5.0.0"
-}
