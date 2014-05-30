@@ -1,0 +1,8 @@
+{
+	"title":"$:/plugins/chgl29/learncards",
+	"description":"A learncard system",
+	"author":"Christian Heigele",
+	"version":"0.0.1",
+	"core-version":">=5.0.12",
+	"plugin-type":"plugin",
+}
