@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.25)  27 MAY 2014 16:39
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.25)  10 JUN 2014 09:44
 entering extended mode
  %&-line parsing enabled.
 **tiddly.tex
@@ -152,7 +152,7 @@ Here is how much of TeX's memory you used:
 share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf
 -texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on tiddly.pdf (2 pages, 49175 bytes).
+Output written on tiddly.pdf (2 pages, 49824 bytes).
 PDF statistics:
  21 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
