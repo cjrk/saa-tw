@@ -14,4 +14,4 @@
 \contentsline {section}{\numberline {5}The TiddlyWiki data management concept 2-3}{3}{section.5}
 \contentsline {subsection}{\numberline {5.1}Data Management during Runtime 1-2}{3}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Data Persistence 1}{4}{subsection.5.2}
-\contentsline {section}{\numberline {6}Summary and Conclusion 1-2}{4}{section.6}
+\contentsline {section}{\numberline {6}Summary and Conclusion 1-2}{5}{section.6}
