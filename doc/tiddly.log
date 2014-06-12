@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.25)  12 JUN 2014 10:19
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.25)  12 JUN 2014 10:25
 entering extended mode
  %&-line parsing enabled.
 **tiddly.tex
@@ -372,14 +372,23 @@ Overfull \hbox (18.31827pt too wide) in paragraph at lines 35--36
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./images/overview.png 
 (PNG copy)>]
+! Undefined control sequence.
+l.42 ...software to focus on the writing.\footcite
+                                                  {TIDD:WIKITEXT} The WikiTe...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 47.
- (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 47.
- [3] [4]
-(./tiddly.bbl [5]) [6] (./tiddly.aux)
+ [3] [4] (./tiddly.bbl
+[5]) [6] (./tiddly.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -391,7 +400,7 @@ Here is how much of TeX's memory you used:
  10249 multiletter control sequences out of 15000+50000
  13216 words of font info for 52 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,8n,49p,674b,1532s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,8n,49p,678b,1532s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/
@@ -399,9 +408,9 @@ type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public
 /amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
 cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on tiddly.pdf (6 pages, 174449 bytes).
+Output written on tiddly.pdf (6 pages, 174644 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
+ 187 PDF objects out of 1000 (max. 8388607)
  46 named destinations out of 1000 (max. 500000)
  142 words of extra memory for PDF output out of 10000 (max. 10000000)
 
