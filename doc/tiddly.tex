@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{prettyref}
+\usepackage{cite}
 \newrefformat{lst}{Listing \ref{#1}}
 \definecolor{lightGray}{gray}{0.95}
 \lstset{
@@ -36,7 +37,23 @@ numbers=left
 \end{figure}
 
 \subsection{Tiddler as the key element 1}
+\newpage
 \subsection{The WikiText concept 1}
+The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}}, but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing.\cite{TIDD:WIKITEXT} The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
+During the saving process these tags renders to HTML elements for example:
+\begin{lstlisting}[caption={Example use of WikiText},label=lst:data-div]
+WikiText:--- 
+Renders as:
+HTML:<hr>
+WikiText:[img[http://tiddlywiki.com/favicon.ico]]
+Renders as: 
+HTML:<img src="http://tiddlywiki.com/favicon.ico">
+\end{lstlisting}
+Furthermore the WikiText is used to access the widgets which are integrated in the application.These widgets are used to enhance the the WikiText with a rich functionality. Widgets are based on the HTML-Syntax but always starts with a \$.
+\begin{lstlisting}[caption={Example use of widgets within WikiText},label=lst:data-div]
+WikiText:
+<$button message="tw-close-tiddler">Close Me!</$button> 
+\end{lstlisting}
 \section{Bootstrap-Process 2-3}
 \subsection{The Heart of TiddlyWiki (Boot-Kernel) 1 - 1.5}
 \subsection{Timeline of the startup Process 1 - 1.5}
@@ -50,7 +67,7 @@ numbers=left
 \newpage 
 \subsection{Data Persistence 1}
 \subsubsection*{Persist data}
-TiddlyWiki supports a wide rage of methods to persist your data. One of this methods is the HTML5 fallback saver. This methods works on almost every browser. With this method a copy of the entire wiki will be downloaded by the browser. This means you get a new file everytime you hit the save button. To avoid this there a some plugins for different browsers to allow to save direct to the current open TiddlyWiki-File.
+TiddlyWiki supports a wide range of methods to persist your data. One of this methods is the HTML5 fallback saver. This methods works on almost every browser. With this method a copy of the entire wiki will be downloaded by the browser. This means you get a new file everytime you hit the save button. To avoid this there a some plugins for different browsers to allow to save direct to the current open TiddlyWiki-File.
 \subsubsection*{Data-Storage}
 TiddlyWiki persists the data within the HTML-File in two Div-Areas depending on whether the encryption of the TiddlyWiki is activated or not. If the TiddlyWiki is not encrypted the data is stored in the Div-Area called ``StoreArea''. Every created Tiddler is stored in a own Div-area with a few custom values. An example of a saved Tiddler is shown below (\prettyref{lst:data-div}). The Div-Area has the following attributes, all attributes which are not in these list are parsed as a custom field:
 \begin{description}
@@ -69,4 +86,6 @@ TiddlyWiki persists the data within the HTML-File in two Div-Areas depending on 
 \end{lstlisting}
 With a activated encryption the data is stored in a special Div-Area called ``encryptedStoreArea''. TiddlyWiki uses the Standford JavaScript Crypto Libary\footnote{\url{http://bitwiseshiftleft.github.io/sjcl/}}. The encrypted Tiddlers are saved in a JSON string within this Div-Area.
 \section{Summary and Conclusion 1-2}
+\bibliography{tiddly}
+\bibliographystyle{alpha}
 \end{document}
