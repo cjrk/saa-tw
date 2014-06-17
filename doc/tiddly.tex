@@ -10,7 +10,7 @@
 \usepackage{prettyref}
 \usepackage{cite}
 \newrefformat{lst}{Listing \ref{#1}}
-\newrefformat{list}{Chapter \ref{#1}}
+\newrefformat{list}{List \ref{#1}}
 \definecolor{lightGray}{gray}{0.95}
 \lstset{
 backgroundcolor=\color{lightGray},
@@ -23,6 +23,9 @@ language=HTML,
 morekeywords={created,modified,tags},
 numbers=left
 }
+\usepackage{float}
+\newfloat{lablist}{H}{lol}
+\floatname{lablist}{List}
 
 \newcommand{\todo}[1]{{\bf TODO: #1}\\
 }
@@ -112,8 +115,10 @@ TiddlyWiki persists the data within the HTML-File in two Div-Areas depending on 
 </div>
 \end{lstlisting}
 The Div-Area has the following attributes, all attributes which are not in these list are parsed as a custom field:
-\begin{description}
+\begin{lablist}
+\caption{Custom fields of a tiddler div}
 \label{list:TiddlerFields}
+\begin{description}
 \item[created] Timestamp number of milliseconds since 01.01.1970.
 \item[modified] Timestamp number of milliseconds since 01.01.1970.
 \item[tags] list of tags seperated by whitespace. Tags which contain whitespaces are wrapped by [[ ]], e.g. [[example Tag]].
@@ -121,6 +126,7 @@ The Div-Area has the following attributes, all attributes which are not in these
 \item[title] Title of the Tiddler
 \item[list] An ordered list of tiddler titles associated with a tiddler
 \end{description}
+\end{lablist}
 With a activated encryption the data is stored in a special Div-Area called ``encryptedStoreArea''. TiddlyWiki uses the Standford JavaScript Crypto Libary\footnote{\url{http://bitwiseshiftleft.github.io/sjcl/}}. The encrypted Tiddlers are saved in a JSON string within this Div-Area.
 \section{Summary and Conclusion 1-2}
 \bibliography{tiddly}
