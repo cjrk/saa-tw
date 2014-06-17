@@ -22,6 +22,10 @@ language=HTML,
 morekeywords={created,modified,tags},
 numbers=left
 }
+
+\newcommand{\todo}[1]{{\bf TODO: #1}\\
+}
+
 \title{Analysis and documentation of a single page application based on TiddlyWiki}
 \author{Christian Jurke 898872, Christian Heigele 901361}
 \begin{document}
@@ -31,13 +35,32 @@ numbers=left
 \section{Introduction 1}
 \section{Decomposition of the TiddlyWiki-Architecture 3}
 \subsection{Architecture of the single page application TiddlyWiki 1}
-TODO: Explain a difference between web page application and simple application. (twpa are bound to the HTTP-Concepts, including stateless requests to transfer data. Often a state is emulated by the use of sessions, which need to be handled on the client and especially on the server side.)
-TW builds on some basic aspects. First, TW should not be perceived as a dynamic web page like traditional server-side generated web pages. Instead TW can be perceived as an application which is written entirely in JavaScript and uses HTML5 and CSS3 to render a GUI. This way TW can be executed in any JavaScript environment, like a browser or a node.js instance, while keeping the advantages of a simple application.
+Traditional web applications are bound to HTTP-Concepts, including stateless requests to transfer data. In these applications a state is often emulated by the use of sessions, which need to be handled on the client and especially on the server side.
+These restrictions often lead to a fragmented user experience because the user interface is rebuilt on every data transfer.
+TW tries to overcome these restrictions and the resulting disadvantages by building on few but basic concepts which loosen the coupling of HTTP and the actual application eliminating the need of state emulation and resulting in a wiki style single page application with the ability to run in an offline environment.
+TW builds on some basic concepts. First, TW should not be perceived as a dynamic web page like traditional server-side generated web pages. Instead TW can be perceived as an application which is written entirely in JavaScript and uses HTML5 and CSS3 to render a GUI. This way TW can be executed in any JavaScript environment, like a browser or a node.js instance, while keeping the advantages of a simple application.
 One of these advantages is, that TW has no need to emulate an application state, like a traditional web application would need to do.
 A second concept concerns the storage of the application data. In contrast to a traditional web application, TW doesn't store the data in an external database but simply uses native data structures already existing in JavaScript to store tiddlers, the basic (atomic) element of the TW application, in the memory. Additional core plugins provide a way to persist this storage in simple HTML div elements.
 
-Just by building on these simple, basic concepts, TW can already be used as a offline-enabled single web page application.
-Also, by using a server side node.js environment, TW can be used as an online web application, just by providing an additional plugin to persist tiddlers into simple text files and a plugin syncing local changes to the node.js server.
+Just by building on these simple and basic concepts,
+\begin{itemize}
+\item TW is able to store application data in a single HTML page by using div elements as data container.
+\item TW is able to store application code (JavaScript) in the same single HTML page.
+\item TW can be executed in any JavaScript environment like a browser.
+\end{itemize}
+
+These points already enable TW to be used as an offline-enabled single web page application.
+Also, by using a server side node.js environment, TW can be used as an online web application, just by providing an additional plugin to persist tiddlers into plain text files and a plugin syncing the local data store with the node.js server.
+
+\todo{tiddlers, modules, plugins}
+\todo{in memory datastore (Wiki) and filter as query language}
+
+
+\todo{data persistence (saver and deserializer)}
+\todo{interpreting wiki text (parser)}
+\todo{ui (widgets, dom tree)}
+\todo{sync data store with ui - selective update}
+
 \begin{figure}[hbtp]
 \includegraphics[scale=0.4]{images/overview.png}
 \caption{Decomposition of TW}
