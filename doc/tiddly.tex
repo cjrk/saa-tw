@@ -45,7 +45,7 @@ Also, by using a server side node.js environment, TW can be used as an online we
 \end{figure}
 \newpage
 \subsection{Tiddler as the key element 1}
-A Tiddler is the smallest unit of the TiddlyWiki system. It can contains human readable text or other text-based content like javascript in the form of plugins. Internally Tiddlers are immutable objects contain a bunch of key:value pairs called fields. The only required field of a tiddler is the name field. For a list of the standard fields of a tiddler see (\prettyref{list:TiddlerFields})
+A Tiddler is the smallest unit of the TiddlyWiki system. It can contains human readable text or other text-based content like javascript in the form of plugins. Internally Tiddlers are immutable objects contain a bunch of key:value pairs called fields. The only required field of a tiddler is the name field. For a list of the standard fields of a tiddler see (\prettyref{list:TiddlerFields}). Everything in tiddlywiki is loaded as tiddlers, plugins for example are a bunch of tiddlers that are distributed as a single JSON tiddler. The only exception is the bootkernel which isnt a tiddler.
 \newpage
 \subsection{The WikiText concept 1}
 The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}}, but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing.\cite{TIDD:WIKITEXT} The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
@@ -96,6 +96,7 @@ The Div-Area has the following attributes, all attributes which are not in these
 \item[tags] list of tags seperated by whitespace. Tags which contain whitespaces are wrapped by [[ ]], e.g. [[example Tag]].
 \item[type] Type of the Tiddler.
 \item[title] Title of the Tiddler
+\item[list] An ordered list of tiddler titles associated with a tiddler
 \end{description}
 With a activated encryption the data is stored in a special Div-Area called ``encryptedStoreArea''. TiddlyWiki uses the Standford JavaScript Crypto Libary\footnote{\url{http://bitwiseshiftleft.github.io/sjcl/}}. The encrypted Tiddlers are saved in a JSON string within this Div-Area.
 \section{Summary and Conclusion 1-2}
