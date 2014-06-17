@@ -57,13 +57,17 @@ WikiText:
 \section{Bootstrap-Process 2-3}
 \subsection{The Heart of TiddlyWiki (Boot-Kernel) 1 - 1.5}
 \subsection{Timeline of the startup Process 1 - 1.5}
+
 \section{The Plugin and Module concept 4-5}
 \subsection{Introduction to the Plugin-Concept 1}
 \subsection{Kernel-Plugins 1}
 \subsection{UI-Elements 1}
 \subsection{Developing a own Plugin 1-2}
+\newpage
 \section{The TiddlyWiki data management concept 2-3}
+This section descripes how the data of the wiki is stored within Tiddlywiki during the runtime. And how the complete wiki is persistet.
 \subsection{Data Management during Runtime 1-2}
+During the runtime the data of Tiddlywiki is stored in javascript objects. These objects are synchronized with the DOM-Representation of Tiddlywiki. This means every change of the original data of a Tiddler, fires an event which changes all DOM-Representations of the Tiddler and the javascript object. The barbone Wiki store is created during the boot process and is kept in a object called \$tw.Wiki. This object contains amongst others a hashmap of the different Tiddlers of Tiddlywiki. The Hashmap is used to store the javascript object representation of the different Tiddlers.
 \newpage 
 \subsection{Data Persistence 1}
 \subsubsection*{Persist data}
