@@ -10,7 +10,7 @@
 \usepackage{prettyref}
 \usepackage{cite}
 \newrefformat{lst}{Listing \ref{#1}}
-\newrefformat{list}{List \ref{#1}}
+\newrefformat{list}{List \ref{#1} on page \pageref{#1}}
 \definecolor{lightGray}{gray}{0.95}
 \lstset{
 backgroundcolor=\color{lightGray},
@@ -71,7 +71,19 @@ Also, by using a server side node.js environment, TW can be used as an online we
 \end{figure}
 \newpage
 \subsection{Tiddler as the key element 1}
-A Tiddler is the smallest unit of the TiddlyWiki system. It can contains human readable text or other text-based content like javascript in the form of plugins. Internally Tiddlers are immutable objects contain a bunch of key:value pairs called fields. The only required field of a tiddler is the name field. For a list of the standard fields of a tiddler see (\prettyref{list:TiddlerFields}). Everything in tiddlywiki is loaded as tiddlers, plugins for example are a bunch of tiddlers that are distributed as a single JSON tiddler. The only exception is the bootkernel which isnt a tiddler.
+A Tiddler is the smallest unit of the TiddlyWiki system. It can contains human readable text or other text-based content like javascript in the form of plugins. Internally Tiddlers are immutable objects contain a bunch of key:value pairs called fields. The only required field of a tiddler is the name field. The Standard fields of a tiddler are listed below.Everything in tiddlywiki is loaded as tiddlers, plugins for example are a bunch of tiddlers that are distributed as a single JSON tiddler. The only exception is the bootkernel which isnt a tiddler.
+\begin{lablist}
+\caption{Custom fields of a tiddler div}
+\label{list:TiddlerFields}
+\begin{description}
+\item[created] Timestamp number of milliseconds since 01.01.1970.
+\item[modified] Timestamp number of milliseconds since 01.01.1970.
+\item[tags] list of tags seperated by whitespace. Tags which contain whitespaces are wrapped by [[ ]], e.g. [[example Tag]].
+\item[type] Type of the Tiddler.
+\item[title] Title of the Tiddler
+\item[list] An ordered list of tiddler titles associated with a tiddler
+\end{description}
+\end{lablist}
 \newpage
 \subsection{The WikiText concept 1}
 The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}}, but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing.\cite{TIDD:WIKITEXT} The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
@@ -114,20 +126,9 @@ TiddlyWiki persists the data within the HTML-File in two Div-Areas depending on 
 	<pre>testText</pre>
 </div>
 \end{lstlisting}
-The Div-Area has the following attributes, all attributes which are not in these list are parsed as a custom field:
-\begin{lablist}
-\caption{Custom fields of a tiddler div}
-\label{list:TiddlerFields}
-\begin{description}
-\item[created] Timestamp number of milliseconds since 01.01.1970.
-\item[modified] Timestamp number of milliseconds since 01.01.1970.
-\item[tags] list of tags seperated by whitespace. Tags which contain whitespaces are wrapped by [[ ]], e.g. [[example Tag]].
-\item[type] Type of the Tiddler.
-\item[title] Title of the Tiddler
-\item[list] An ordered list of tiddler titles associated with a tiddler
-\end{description}
-\end{lablist}
+The Div-Area has the same attributes like the standard tillder fields, listed in  (\prettyref{list:TiddlerFields}), all attributes which are not in this list are parsed as a custom field. The only required attribute is the name attribute, all other attributes are optional.\\
 With a activated encryption the data is stored in a special Div-Area called ``encryptedStoreArea''. TiddlyWiki uses the Standford JavaScript Crypto Libary\footnote{\url{http://bitwiseshiftleft.github.io/sjcl/}}. The encrypted Tiddlers are saved in a JSON string within this Div-Area.
+\newpage
 \section{Summary and Conclusion 1-2}
 \bibliography{tiddly}
 \bibliographystyle{alpha}
