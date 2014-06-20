@@ -57,14 +57,48 @@ Just by building on these simple and basic concepts,
 These points already enable TW to be used as an offline-enabled single file web application.
 Also, by using a server side node.js environment, TW can be used as an online web application, just by providing an additional module to persist tiddlers into plain text files and a module syncing the local data store with the node.js server.
 
-\todo{tiddlers, modules, plugins}
-\todo{in memory datastore (Wiki) and filter as query language}
+%\todo{tiddlers, modules, plugins}
+%\todo{in memory datastore (Wiki) and filter as query language}
+To understand the architecture of TW, the first important thing to understand is that anything is a tiddler.
+Even the application logic is stored in tiddlers that are marked as "application/javascript".
+These tiddlers, which contain application logic, are called modules and a CommonJS compatible module system is responsible for assembling the individual modules into the TW application.
+The result is a tree representing the whole TW application containing module tiddlers, data tiddlers and some JavaScript functions and objects.
 
+Only a small part of the TW is not managed as tiddlers, the bootkernel.
+The bootkernel is the first thing running, when the application is started and it puts some initial objects and functions into the application tree which are needed to load and manage tiddlers.
+After the bootkernel built this initial application tree, the remaining parts of the application can be loaded as module tiddlers.
+Beside some utility functions the most important object that is built by the bootkernel is "\$tw.wiki", consisting of JavaScript structures and functions that are used to store and manage the loaded tiddlers.
+Among other things this store can be used to add new tiddlers, remove tiddlers and retrieve tiddlers by name.
 
-\todo{data persistence (saver and deserializer)}
-\todo{interpreting wiki text (parser)}
-\todo{ui (widgets, dom tree)}
-\todo{sync data store with ui - selective update}
+%\todo{data persistence (saver and deserializer)}
+The next important part of the application are deserializers. Deserializers are responsible to load tiddlers from various sources. One of the deserializers provided by the boot kernel for example can load new tiddlers from the current DOM tree.
+The counter part of the deserializers are savers and syncadapters.
+Both are used to persist the changes made to the store but they work in slightly different ways.
+A syncadapter registers at the store for changes.
+Now when a tiddler is changed and these changes are written to the store, the syncadapter is triggered and persists the new changes, for each tiddler individually.
+If no syncadapter is available a saver can be used to persist new changes.
+A saver does not register to change events and so it does not persist each tiddler, when it is changed.
+A saver is used to save the complete store or the complete TW for that matter at once. After a user made changes to some tiddlers, this method can be used to download the current state of the store as a completely new TW application.
+
+%\todo{interpreting wiki text (parser)}
+%\todo{ui (widgets, dom tree)}
+%\todo{sync data store with ui - selective update}
+Following the "anything is a tiddler" concept, even the UI consists of tiddlers.
+This is possible because tiddlers can not only contain plain text or JavaScript (modules) but the also can contain a special markup text called "WikiText".
+By using WikiText the user can put markup elements like tables or images in a tiddler.
+To provide some more sophisticated UI elements, WikiText can also contain special widgets like text input fields,
+checkboxes, dynamic lists etc.
+In most cases, these widgets are used to directly modify or represent the information contained in other tiddlers.
+If a tiddler is changed and this change should reflect in the UI e.g. a widget, a process called selective update takes place. Selective updating means when a tiddler or a set of tiddlers changes, each widget is asked, if changes to this tiddlers would affect its appearance. If so, the respective widget is re-rendered otherwise it remains unchanged.
+
+The whole application is basically built from three parts. At first, the boot kernel provides the basic functionality to handle tidlers. The second part are tiddlers representing core functionality. These are for example modules which extend the store by more sophisticated functions, UI tiddlers and widget modules, a WikiText parser, sophisticated deserializers, savers, syncadapters, etc.
+At this stage the application can be extended by plug-ins. Consequently, a plug-in is a single tiddler which itself contains multiple tiddlers, forming the plug-in. Each of this tiddler might be a module providing new functionality (i.e. a module tiddler marked with "module-type: saver" can extend the application with new methods of saving the current wiki state.).
+Also, a tiddler contained in a plug-in can supersede" an existing tiddler and take its place.
+
+By managing every part of the application as a tiddler, the application is only needed to provide some basic functionality to manage the individual tiddlers, load and persist them and render them to HTML output and provide a way to register for changes made to tiddlers.
+This way the whole wiki application can be build from these simple concepts.
+Plug-ins can be used to add new functionality to the existing modules or even to replace individual tiddlers/modules,
+enabling developers to build whole new applications upon the TW base system.
 
 \begin{figure}[hbtp]
 \includegraphics[scale=0.4]{images/overview.png}
