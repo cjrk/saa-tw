@@ -44,7 +44,8 @@ These restrictions often lead to a fragmented user experience because the user i
 TW tries to overcome these restrictions and the resulting disadvantages by building on few but basic concepts which loosen the coupling of HTTP and the actual application eliminating the need of state emulation and resulting in a wiki style single page application with the ability to run in an offline environment.
 TW builds on some basic concepts. First, TW should not be perceived as a dynamic web page like traditional server-side generated web pages. Instead TW can be perceived as an application which is written entirely in JavaScript and uses HTML5 and CSS3 to render a GUI. This way TW can be executed in any JavaScript environment, like a browser or a node.js instance, while keeping the advantages of a simple application.
 One of these advantages is, that TW has no need to emulate an application state, like a traditional web application would need to do.
-A second concept concerns the storage of the application data. In contrast to a traditional web application, TW doesn't store the data in an external database but simply uses native data structures already existing in JavaScript to store tiddlers, the basic (atomic) element of the TW application, in the memory. Additional core plugins provide a way to persist this storage in simple HTML div elements.
+
+A second concept concerns the storage of the application data. In contrast to a traditional web application, TW doesn't store the data in an external database but simply uses native data structures already existing in JavaScript to store tiddlers, the basic (atomic) element of the TW application, in the memory. Additional core modules provide a way to persist this storage in simple HTML div elements.
 
 Just by building on these simple and basic concepts,
 \begin{itemize}
@@ -53,8 +54,8 @@ Just by building on these simple and basic concepts,
 \item TW can be executed in any JavaScript environment like a browser.
 \end{itemize}
 
-These points already enable TW to be used as an offline-enabled single web page application.
-Also, by using a server side node.js environment, TW can be used as an online web application, just by providing an additional plugin to persist tiddlers into plain text files and a plugin syncing the local data store with the node.js server.
+These points already enable TW to be used as an offline-enabled single file web application.
+Also, by using a server side node.js environment, TW can be used as an online web application, just by providing an additional module to persist tiddlers into plain text files and a module syncing the local data store with the node.js server.
 
 \todo{tiddlers, modules, plugins}
 \todo{in memory datastore (Wiki) and filter as query language}
