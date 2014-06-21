@@ -106,11 +106,13 @@ enabling developers to build whole new applications upon the TW base system.
 \end{figure}
 \newpage
 \subsection{Tiddler as the key element 1}
-\todo{What are the parts of a tiddler - pretty much done}
-\todo{what can a tiddler be - plain text, module, image, container for tiddlers(plugin), ui-element}
+%\todo{What are the parts of a tiddler - pretty much done}
+%\todo{what can a tiddler be - plain text, module, image, container for tiddlers(plugin), ui-element}
 \todo{what can i do with tiddlers? - tags, filter-language, widgets modify or represent tiddlers/listoftiddlers}
 \todo{example of the concepts power: drag and drop functionality - By providing the functionality to drag and drop a tiddler from one browser to another, we can transfer anything from one tw-instance to another, including plain text, images, new modules like widgets or savers, and even a whole plug-in can be added to an existing TW instance just by draggin and dropping}
-A Tiddler is the smallest unit of the TiddlyWiki system. It can contains human readable text or other text-based content like javascript in the form of plugins. Internally Tiddlers are immutable objects contain a bunch of key:value pairs called fields. The only required field of a tiddler is the name field. The Standard fields of a tiddler are listed below.Everything in tiddlywiki is loaded as tiddlers, plugins for example are a bunch of tiddlers that are distributed as a single JSON tiddler. The only exception is the bootkernel which isnt a tiddler.
+
+A tiddler is the smallest unit of the TiddlyWiki system. It can contain any data like plain text, WikiText markup, JavaScript code (module tiddler), JSON structures\footnote{JSON structures might even contain additional tiddlers. Plug-ins are implemented this way to pack multiple tiddlers in a single plug-in tiddler.}, images in SVG format or even binary images encoded with base64.
+Internally Tiddlers are immutable (are they?) objects containing a bunch of key:value pairs called fields. The only required field of a tiddler is the title field. The Standard fields of a tiddler are listed below. Nearly everything in TiddlyWiki is loaded as tiddlers. Plugins for example are a bunch of tiddlers that are distributed as a single JSON tiddler. The only exception is the boot kernel which isn't a tiddler.
 \begin{lablist}
 \caption{Custom fields of a tiddler div}
 \label{list:TiddlerFields}
@@ -118,7 +120,7 @@ A Tiddler is the smallest unit of the TiddlyWiki system. It can contains human r
 \item[created] Timestamp number of milliseconds since 01.01.1970.
 \item[modified] Timestamp number of milliseconds since 01.01.1970.
 \item[tags] list of tags seperated by whitespace. Tags which contain whitespaces are wrapped by [[ ]], e.g. [[example Tag]].
-\item[type] Type of the Tiddler.
+\item[type] Type of the Tiddler, e.g. text/plain or text/vnd.tiddlywiki .
 \item[title] Title of the Tiddler
 \item[list] An ordered list of tiddler titles associated with a tiddler
 \end{description}
