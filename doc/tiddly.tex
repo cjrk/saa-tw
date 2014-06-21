@@ -108,8 +108,8 @@ enabling developers to build whole new applications upon the TW base system.
 \subsection{Tiddler as the key element 1}
 %\todo{What are the parts of a tiddler - pretty much done}
 %\todo{what can a tiddler be - plain text, module, image, container for tiddlers(plugin), ui-element}
-\todo{what can i do with tiddlers? - tags, filter-language, widgets modify or represent tiddlers/listoftiddlers}
-\todo{example of the concepts power: drag and drop functionality - By providing the functionality to drag and drop a tiddler from one browser to another, we can transfer anything from one tw-instance to another, including plain text, images, new modules like widgets or savers, and even a whole plug-in can be added to an existing TW instance just by draggin and dropping}
+%\todo{what can i do with tiddlers? - tags, filter-language, widgets modify or represent tiddlers/listoftiddlers}
+%\todo{example of the concepts power: drag and drop functionality - By providing the functionality to drag and drop a tiddler from one browser to another, we can transfer anything from one tw-instance to another, including plain text, images, new modules like widgets or savers, and even a whole plug-in can be added to an existing TW instance just by draggin and dropping}
 
 A tiddler is the smallest unit of the TiddlyWiki system. It can contain any data like plain text, WikiText markup, JavaScript code (module tiddler), JSON structures\footnote{JSON structures might even contain additional tiddlers. Plug-ins are implemented this way to pack multiple tiddlers in a single plug-in tiddler.}, images in SVG format or even binary images encoded with base64.
 Internally Tiddlers are immutable (are they?) objects containing a bunch of key:value pairs called fields. The only required field of a tiddler is the title field. The Standard fields of a tiddler are listed below. Nearly everything in TiddlyWiki is loaded as tiddlers. Plugins for example are a bunch of tiddlers that are distributed as a single JSON tiddler. The only exception is the boot kernel which isn't a tiddler.
@@ -142,7 +142,6 @@ Another example which shows how the "anything is a tiddler" concept leads to an 
 HTML5 standard comes with a native drag and drop feature. TW uses this feature and makes it possible to drag and drop a tiddler from one instance to another.
 And because anything is a tiddler, this brings the ability to drag and drop individual wiki pages, JavaScript modules, UI components and whole plug-ins between TW instances.
 
-\newpage
 \subsection{The WikiText concept 1}
 The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}}, but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing.\cite{TIDD:WIKITEXT} The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
 During the saving process these tags renders to HTML elements for example:
