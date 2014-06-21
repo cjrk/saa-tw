@@ -125,6 +125,23 @@ Internally Tiddlers are immutable (are they?) objects containing a bunch of key:
 \item[list] An ordered list of tiddler titles associated with a tiddler
 \end{description}
 \end{lablist}
+
+Tiddlers are used across multiple levels. Meaning a developer uses tiddlers as the basic element containing application code, configuration values and even as a form of variable to build up the wiki application.
+On a different level, a tiddler is also the basic unit of work for the wiki user, e.g. the individual wiki pages are implemented as tiddler.
+This makes sense for multiple reasons:
+Because the UI of TW is build from tiddlers, the wiki user is able to edit the interface of his own TW just by editing a wiki page.
+For example to add a list of tiddler links to the sidebar, the user just needs to create a new wiki page (in fact a tiddler), put the links into this page and tag this tiddler with "\$:/tags/SideBar".
+This way the user can customize his work environment just by using mechanism he already uses to manage his wiki pages.
+Tiddlers consist of fields. When using a tiddler as wiki page, the user can use these fields to store meta information, like tags.
+Because fields for metadata and especially tags are an easy way for the user to organize his wiki pages, TW provides a special filter mechanism to choose tiddlers using their metadata.
+A filter string like "[tag[learncard]topic[math]!tag[successful]]" would filter all tiddlers tagged with "learncard", with the value "math" in the topic-field and are not tagged with "successful".
+A user could use this filter together with the "\textless\$list\textgreater" widget to display a list of all math learncards which are not yet answered successfully in a wiki page.
+And because a wiki page is nothing but a tiddler, just by tagging this tiddler with "\$:/tags/SideBar", the user gets a permanent list of learncards to be done in the sidebar of his TW application.
+
+Another example which shows how the "anything is a tiddler" concept leads to an environment where a single feature brings great benefit is the drag and drop feature.
+HTML5 standard comes with a native drag and drop feature. TW uses this feature and makes it possible to drag and drop a tiddler from one instance to another.
+And because anything is a tiddler, this brings the ability to drag and drop individual wiki pages, JavaScript modules, UI components and whole plug-ins between TW instances.
+
 \newpage
 \subsection{The WikiText concept 1}
 The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}}, but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing.\cite{TIDD:WIKITEXT} The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
