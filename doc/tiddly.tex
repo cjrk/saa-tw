@@ -38,10 +38,10 @@ numbers=left
 \textbf{Pages Min:13 Max:17 }
 \section{Introduction 1}
 \section{Decomposition of the TiddlyWiki-Architecture 3}
-\subsection{Architecture of the single page application TiddlyWiki 1}
 Traditional web applications are bound to HTTP-Concepts, including stateless requests to transfer data. In these applications a state is often emulated by the use of sessions, which need to be handled on the client and especially on the server side.
 These restrictions often lead to a fragmented user experience because the user interface is rebuilt on every data transfer.
 TW tries to overcome these restrictions and the resulting disadvantages by building on few but basic concepts which loosen the coupling of HTTP and the actual application eliminating the need of state emulation and resulting in a wiki style single page application with the ability to run in an offline environment.
+\subsection{Architecture of the single page application TiddlyWiki 1}
 TW builds on some basic concepts. First, TW should not be perceived as a dynamic web page like traditional server-side generated web pages. Instead TW can be perceived as an application which is written entirely in JavaScript and uses HTML5 and CSS3 to render a GUI. This way TW can be executed in any JavaScript environment, like a browser or a node.js instance, while keeping the advantages of a simple application.
 One of these advantages is, that TW has no need to emulate an application state, like a traditional web application would need to do.
 
@@ -64,10 +64,10 @@ Even the application logic is stored in tiddlers that are marked as "application
 These tiddlers, which contain application logic, are called modules and a CommonJS compatible module system is responsible for assembling the individual modules into the TW application.
 The result is a tree representing the whole TW application containing module tiddlers, data tiddlers and some JavaScript functions and objects.
 
-Only a small part of the TW is not managed as tiddlers, the bootkernel.
-The bootkernel is the first thing running, when the application is started and it puts some initial objects and functions into the application tree which are needed to load and manage tiddlers.
-After the bootkernel built this initial application tree, the remaining parts of the application can be loaded as module tiddlers.
-Beside some utility functions the most important object that is built by the bootkernel is "\$tw.wiki", consisting of JavaScript structures and functions that are used to store and manage the loaded tiddlers.
+Only a small part of the TW is not managed as tiddlers, the boot kernel.
+The boot kernel is the first thing running, when the application is started and it puts some initial objects and functions into the application tree, which are needed to load and manage tiddlers.
+After the boot kernel built this initial application tree, the remaining parts of the application can be loaded as module tiddlers.
+Beside some utility functions the most important object that is contributed by the boot kernel is "\$tw.wiki", consisting of JavaScript structures and functions that are used to store and manage the loaded tiddlers.
 Among other things this store can be used to add new tiddlers, remove tiddlers and retrieve tiddlers by name.
 
 %\todo{data persistence (saver and deserializer)}
@@ -84,7 +84,7 @@ A saver is used to save the complete store or the complete TW for that matter at
 %\todo{ui (widgets, dom tree)}
 %\todo{sync data store with ui - selective update}
 Following the "anything is a tiddler" concept, even the UI consists of tiddlers.
-This is possible because tiddlers can not only contain plain text or JavaScript (modules) but the also can contain a special markup text called "WikiText".
+This is possible because tiddlers can not only contain plain text or JavaScript (modules) but the also can contain a special markup text called WikiText.
 By using WikiText the user can put markup elements like tables or images in a tiddler.
 To provide some more sophisticated UI elements, WikiText can also contain special widgets like text input fields,
 checkboxes, dynamic lists etc.
@@ -95,7 +95,7 @@ The whole application is basically built from three parts. At first, the boot ke
 At this stage the application can be extended by plug-ins. Consequently, a plug-in is a single tiddler which itself contains multiple tiddlers, forming the plug-in. Each of this tiddler might be a module providing new functionality (i.e. a module tiddler marked with "module-type: saver" can extend the application with new methods of saving the current wiki state.).
 Also, a tiddler contained in a plug-in can supersede" an existing tiddler and take its place.
 
-By managing every part of the application as a tiddler, the application is only needed to provide some basic functionality to manage the individual tiddlers, load and persist them and render them to HTML output and provide a way to register for changes made to tiddlers.
+By managing nearly every part of the application as tiddlers, the application is only needed to provide some basic functionality to manage the individual tiddlers, load and persist them, render them to HTML output and provide a way to register for the changes made to tiddlers.
 This way the whole wiki application can be build from these simple concepts.
 Plug-ins can be used to add new functionality to the existing modules or even to replace individual tiddlers/modules,
 enabling developers to build whole new applications upon the TW base system.
