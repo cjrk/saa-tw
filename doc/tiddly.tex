@@ -64,6 +64,7 @@ Even the application logic is stored in tiddlers that are marked as "application
 These tiddlers, which contain application logic, are called modules and a CommonJS compatible module system is responsible for assembling the individual modules into the TW application.
 The result is a tree representing the whole TW application containing module tiddlers, data tiddlers and some JavaScript functions and objects.
 
+\subsubsection*{Boot Kernel}
 Only a small part of the TW is not managed as tiddlers, the boot kernel.
 The boot kernel is the first thing running, when the application is started and it puts some initial objects and functions into the application tree, which are needed to load and manage tiddlers.
 After the boot kernel built this initial application tree, the remaining parts of the application can be loaded as module tiddlers.
@@ -71,6 +72,7 @@ Beside some utility functions the most important object that is contributed by t
 Among other things this store can be used to add new tiddlers, remove tiddlers and retrieve tiddlers by name.
 
 %\todo{data persistence (saver and deserializer)}
+\subsubsection*{Data Persistence}
 The next important part of the application are deserializers. Deserializers are responsible to load tiddlers from various sources. One of the deserializers provided by the boot kernel for example can load new tiddlers from the current DOM tree.
 The counter part of the deserializers are savers and syncadapters.
 Both are used to persist the changes made to the store but they work in slightly different ways.
@@ -83,6 +85,7 @@ A saver is used to save the complete store or the complete TW for that matter at
 %\todo{interpreting wiki text (parser)}
 %\todo{ui (widgets, dom tree)}
 %\todo{sync data store with ui - selective update}
+\subsubsection*{UI - WikiText and Widgets}
 Following the "anything is a tiddler" concept, even the UI consists of tiddlers.
 This is possible because tiddlers can not only contain plain text or JavaScript (modules) but the also can contain a special markup text called WikiText.
 By using WikiText the user can put markup elements like tables or images in a tiddler.
@@ -91,14 +94,15 @@ checkboxes, dynamic lists etc.
 In most cases, these widgets are used to directly modify or represent the information contained in other tiddlers.
 If a tiddler is changed and this change should reflect in the UI e.g. a widget, a process called selective update takes place. Selective updating means when a tiddler or a set of tiddlers changes, each widget is asked, if changes to this tiddlers would affect its appearance. If so, the respective widget is re-rendered otherwise it remains unchanged.
 
-The whole application is basically built from three parts. At first, the boot kernel provides the basic functionality to handle tidlers. The second part are tiddlers representing core functionality. These are for example modules which extend the store by more sophisticated functions, UI tiddlers and widget modules, a WikiText parser, sophisticated deserializers, savers, syncadapters, etc.
+\subsubsection*{Modularization}
+The whole application is basically built from three parts. At first, the boot kernel provides the basic functionality to handle tiddlers. The second part are tiddlers representing core functionality. These are for example modules which extend the store by more sophisticated functions, UI tiddlers and widget modules, a WikiText parser, sophisticated deserializers, savers, syncadapters, etc.
 At this stage the application can be extended by plug-ins. Consequently, a plug-in is a single tiddler which itself contains multiple tiddlers, forming the plug-in. Each of this tiddler might be a module providing new functionality (i.e. a module tiddler marked with "module-type: saver" can extend the application with new methods of saving the current wiki state.).
 Also, a tiddler contained in a plug-in can supersede" an existing tiddler and take its place.
 
 By managing nearly every part of the application as tiddlers, the application is only needed to provide some basic functionality to manage the individual tiddlers, load and persist them, render them to HTML output and provide a way to register for the changes made to tiddlers.
 This way the whole wiki application can be build from these simple concepts.
 Plug-ins can be used to add new functionality to the existing modules or even to replace individual tiddlers/modules,
-enabling developers to build whole new applications upon the TW base system.
+enabling developers to build whole new applications on the TW base system.
 
 \begin{figure}[hbtp]
 \includegraphics[scale=0.4]{images/overview.png}
@@ -165,25 +169,46 @@ The boot-kernel is responsible for creating a barbone TW environment, where the 
 \subsection{Timeline of the startup Process 1 - 1.5}
 \todo{startup image}
 \section{The Plugin and Module concept 4-5}
-\subsection{Introduction to the Plugin-Concept 1}
-\todo{building on the boot-kernel...}
-\todo{what is a module, how is a module used, included?}
-\todo{commonjs, moduletypes (global, blah, etc)}
-\todo{Plug-ins, what is a plugin, shadow tiddler}
+Beside the boot kernel, TW is completely build from modules.
+After a short introduction on modules and plug-ins in the context of TW and explaining how they are organized and managed,
+the following sections will show what type of modules a developer can build and how they hook into the TW architecture.
+The last section shows the procedure of building an plug-in.
+This can be used as a tutorial for building your own plug-ins and will show how an advanced user can create solutions for his own use cases only by using the tiddler model and the WikiText markup language.
+
+\subsection{Introduction to the Module- and Plugin-Concept 1}
+%\todo{building on the boot-kernel...}
+%\todo{what is a module, how is a module used, included?}
+%\todo{commonjs, moduletypes (global, blah, etc)}
+%\todo{Plug-ins, what is a plugin, shadow tiddler}
+After the boot kernel provides the functions used to load tiddlers, the rest of the TW application is loaded as modules.
+A module is a tiddler which has the type "application/javascript" and contains CommonJS compatible JavaScript code. This means a single module provides its public structures and functions in a variable called "export". Other modules can obtain these structures and functions by using a global \textit{require} function.
+
+\begin{lstlisting}[caption={Import other modules by using require()},label=lst:require]
+var Widget = require("$:/core/modules/widgets/widget.js").widget;
+// ...
+ButtonWidget.prototype = new Widget();
+\end{lstlisting}
+
+Instead of requiring a specific module directly, a module developer can specify the type of the module he is developing by setting the field "module-type" of the containing tiddler.
+For example, by providing a module-type of "saver", TW knows that this module implements a way of saving the whole wiki and when the user clicks on the save button, TW automaticly considers the provided module to save the current state.
+
+In most cases, these module tiddlers are packed into a plug-in.
+Following the "everything is a tiddler" concept, a plug-in is a tiddler, which contains a bunch of other tiddlers. These tiddlers are first converted into a JSON structure which then becomes the body of the plug-in tiddler.
+This is not restricted to module tiddlers. A plug-in can contain any tiddlers. This way a developer can put for example simple modules, widgets, UI parts written with WikiText, even new filter operators or extensions to the WikiText parser into a plug-in tiddler. In fact the whole TW core is provided as a single plug-in.
+
 \subsection{Core Modules 1}
 \todo{storage?}
 \todo{deserializer, saver, syncer}
-\todo{storage?}
 \todo{parser}
 \todo{filter}
 \todo{data types?}
 \subsection{UI-Elements 1}
 \todo{widgets}
 \todo{themes}
-\todo{history-thingy}
+\todo{story-thingy}
 \subsection{Developing a own Plugin 1-2}
 \todo{tutorial}
-\todo{widget}
+\todo{our widget}
 \todo{using tags and lists for stuff}
 \newpage
 \section{The TiddlyWiki data management concept 1.5-3}
