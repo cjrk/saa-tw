@@ -217,7 +217,13 @@ This is not restricted to module tiddlers. A plug-in can contain any tiddlers. T
 \section{The TiddlyWiki data management concept 1.5-3}
 This section descripes how the data of the wiki is stored within Tiddlywiki during the runtime. And how the complete wiki is persisted.
 \subsection{Data Management during Runtime 0.5 - 1}
-During the runtime the data of Tiddlywiki is stored in javascript objects. These objects are synchronized with the DOM-Representation of Tiddlywiki. This means every change of the original data of a Tiddler, fires an event which changes all DOM-Representations of the Tiddler and the javascript object. The barbone Wiki store is created during the boot process and is kept in a object called \$tw.Wiki. This object contains amongst others a hashmap of the different Tiddlers of Tiddlywiki. The Hashmap is used to store the javascript object representation of the different Tiddlers. Furthermore this object is used to manage the tiddlers during runtime, it provides methods for adding tiddlers, search tiddlers by name and delete tiddlers.
+During the runtime the data of Tiddlywiki is stored in javascript objects. These objects are synchronized with the DOM-Representation of Tiddlywiki. This means every change of the original data of a Tiddler, fires an event which changes all DOM-Representations of the Tiddler and the javascript object. The barbone Wiki store is created during the boot process and is kept in a object called \$tw.Wiki. This object contains amongst others a hashmap of the different Tiddlers of Tiddlywiki. The Hashmap is used to store the javascript object representation of the different Tiddlers. Furthermore this object is used to manage the tiddlers during runtime, it provides methods for adding tiddlers, search tiddlers by name and delete tiddlers. As mentioned before the DOM-Representation is realised with a rendering pipline as shown in the image below (\prettyref{fig:rendering}). These pipline is called on every change of the DOM-Representation. Because the whole TW is principally implemented with wikiText. Every DOM change is modifies the wikiText of the specific element in the store.  Afterwards the modified wikiText is handed over to the responsible parser module. Which Parses the wikiText by some rules to the parse tree. By adding the functionality of the used widgets the parseTree is converted to the renderTree. The renderTree is the Javascript representation of Tiddlywiki which is renderd by DOM and so it is presented to the user. This Process uses a selective updating so that only the changed parts are updated.
+\begin{figure}[hbtp]
+\caption{Rendering-Pipeline\protect\cite{TIDD:ARCH}}
+\label{fig:rendering}
+\includegraphics[scale=0.075]{images/TiddlyWikiArchitecture.png}
+\end{figure}
+
 \newpage
 \subsection{Data Persistence 1-2}
 
