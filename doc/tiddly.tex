@@ -167,7 +167,10 @@ WikiText:
 \subsection{The Heart of TiddlyWiki (Boot-Kernel) 1 - 1.5}
 The boot-kernel is responsible for creating a barbone TW environment, where the functionality is just enough to load the modules containing the main logic of the application. This boot-kernel contains a few helper methods, the module mechanism as well as the function to create a tiddler and manage them. The boot-kernel also creates the barbone wiki store, which holds all the information of the wiki during the runtime. After creating the store, the boot-kernel is in charge of decrypting the encrypted tiddlers and extracting all the tiddlers e.g. the core module tiddlers embedded in the DOM structure of the HTML file. 
 \subsection{Timeline of the startup Process 1 - 1.5}
-\todo{startup image}
+\begin{figure}[hbtp]
+\caption{Startup-Process}
+\includegraphics[scale=1]{images/StartupTimeline.png}
+\end{figure}
 \section{The Plugin and Module concept 4-5}
 Beside the boot kernel, TW is completely build from modules.
 After a short introduction on modules and plug-ins in the context of TW and explaining how they are organized and managed,
@@ -215,9 +218,26 @@ This is not restricted to module tiddlers. A plug-in can contain any tiddlers. T
 This section descripes how the data of the wiki is stored within Tiddlywiki during the runtime. And how the complete wiki is persisted.
 \subsection{Data Management during Runtime 0.5 - 1}
 During the runtime the data of Tiddlywiki is stored in javascript objects. These objects are synchronized with the DOM-Representation of Tiddlywiki. This means every change of the original data of a Tiddler, fires an event which changes all DOM-Representations of the Tiddler and the javascript object. The barbone Wiki store is created during the boot process and is kept in a object called \$tw.Wiki. This object contains amongst others a hashmap of the different Tiddlers of Tiddlywiki. The Hashmap is used to store the javascript object representation of the different Tiddlers. Furthermore this object is used to manage the tiddlers during runtime, it provides methods for adding tiddlers, search tiddlers by name and delete tiddlers.
+\newpage
 \subsection{Data Persistence 1-2}
+
 \subsubsection*{Persist data}
-TiddlyWiki supports a wide range of methods to persist your data. One of this methods is the HTML5 fallback saver. This methods works on almost every browser. With this method a copy of the entire wiki will be downloaded by the browser. This means you get a new file everytime you hit the save button.  To avoid this and because every Browser has a different API to allow writing direct to the file system there a some plugins for the different browsers. These plug-ins allow the user to save direct to the current open TiddlyWiki-File.
+TiddlyWiki supports a wide range of methods to persist your data. One of this methods is the HTML5 fallback saver. This methods works on almost every browser. With this method a copy of the entire wiki will be downloaded by the browser. This means you get a new file everytime you hit the save button.  To avoid this and because every Browser has a different API to allow writing direct to the file system there a some plugins for the different browsers. These plug-ins allow the user to save direct to the current open TiddlyWiki-File. The Listing below shows the HTML5-compliant to save the changes via the HTML5 fallback saver by downloading the TW as a complete HTML-file.
+\begin{lstlisting}[caption={Download-Method of TW},label=lst:download]
+DownloadSaver.prototype.save = function(text,method,callback) {
+	...
+	var link = document.createElement("a");
+	link.setAttribute("target","_blank");
+	...
+	link.setAttribute("href","data:text/html," + encodeURIComponent(text));
+	...
+	link.setAttribute("download",filename);
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+	return true;
+};
+\end{lstlisting}
 \newpage
 \subsubsection*{Data-Storage}
 TW has two approaches to save the user data. These approaches depends on way you use TW. either you use node.js as a server for TW its saves the tiddlers as plain text in different files or you use TW as standalone in a browser it persists the data within the HTML-File in two Div-Areas depending on whether the encryption of the TiddlyWiki is activated or not. If the TiddlyWiki is not encrypted the data is stored in the Div-Area called ``StoreArea''. Every created Tiddler is stored in a own Div-area with a few custom values. An example of a saved Tiddler is shown below (\prettyref{lst:data-div}). 
@@ -228,6 +248,9 @@ TW has two approaches to save the user data. These approaches depends on way you
 \end{lstlisting}
 The Div-Area has the same attributes like the standard tillder fields, listed in  (\prettyref{list:TiddlerFields}), all attributes which are not in this list are parsed as a custom field. The only required attribute is the name attribute, all other attributes are optional.\\
 With a activated encryption the data is stored in a special Div-Area called ``encryptedStoreArea''. TiddlyWiki uses the Standford JavaScript Crypto Libary\footnote{\url{http://bitwiseshiftleft.github.io/sjcl/}}. The encrypted Tiddlers are saved in a JSON string within this Div-Area.
+
+\newpage
+
 \newpage
 \section{Summary and Conclusion 1-2}
 \bibliography{tiddly}
