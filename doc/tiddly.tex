@@ -275,6 +275,29 @@ Saves are triggered by messages from the UI. TW uses the saver with the highest 
 
 The TW core contains a saver capable of saving the current state of the wiki to the local hard drive by using a special Firefox extension called Tiddlyfox. If this extension is not available, the savers canSave method would return false. A saver with a lower priority would then ask the user to save the current state as a new HTML file.
 
+\subsubsection*{Syncadaptor Modules}
+
+In contrast to tiddlerdeserializers and savers, a module with \textit{module-type: syncadaptor} provides functionality to get a list of tiddlers (this list is provided as SkinnyTiddlers, which are normal tiddlers without the text field) and to load, save and delete single tiddlers. A syncadaptor can also provide functions to login and logout so that syncadaptor modules can be used to synchronize tiddlers with a remote server.
+
+A global module (syncer.js) registers itself at the wiki store to listen for \textit{change} events and tries to sync the changes using one of the available syncadaptor modules.
+
+Beside these fundamental module-types there are additional module types:
+
+\begin{description}
+\item[command] Provide commands which can be used on the command line when executing TW in Node.js.
+\item[config] Values exported by these modules are put to a central place \textit{\$tw.config}
+\item[macro] Can provide sophisticated macros written in JavaScript for use in WikiText.
+
+\item[tiddlermethod] Provide functions which are added to the tiddler prototype.
+\item[wikimethod] Provide functions which are added to the wiki store prototype.
+
+\item[filteroperator] Provide operators to the filter language.
+\item[allfilteroperator] Provide operands for the \textbf{all} filteroperator.
+\item[isfilteroperator] Provide operands for the \textbf{is} filteroperator.
+\item[parser] Provide parsers for specific content types.
+\item[wikirule] Provide additional rules to the WikiText language.
+\end{description}
+
 \subsection{UI-Elements 1}
 \todo{widgets}
 \todo{themes}
