@@ -259,6 +259,22 @@ Some fundamental deserializer functions are provided and loaded in the boot kern
 $tw.wiki.addTiddlers($tw.wiki.deserializeTiddlers("(DOM)",document.getElementById(containerIds[t])));
 \end{lstlisting}
 
+\subsubsection{Saver Modules}
+Modules with \textit{module-type: saver} provide functionality to save the whole TW. There are three methods a saver can support:
+
+\begin{description}
+\item[save] This method is used, when the user requests a save, for example by clicking the save button in the sidebar.
+\item[autosave] This method is used automatically by TW when tiddlers are changed, created or deleted by the user.
+\item[download] This message is used when the wiki should explicitly be downloaded. The control panel uses this method to provide a button which saves the wiki as a static HTML file.
+\end{description}
+
+A saver module has to export two functions. \textit{canSave(wiki)} returning true if this module is capable of working and \textit{create(wiki}) returning an instance of a saver object.
+This saver object has to provide an \textit{info} property containing a name, a priority, an array of methods it supports
+and a method \textit{save(text,method,callback)}. This method is called from TW with the actual text which should be saved, the method which is used and a callback function to report errors (\textit{callback("Error while saving")}) or to notify that saving went well (\textit{callback("Error while saving")}). If the saver method successfully saved the wiki it has to return true, or false otherwise.
+Saves are triggered by messages from the UI. TW uses the saver with the highest priority capable of the requested method to save the wiki.
+
+The TW core contains a saver capable of saving the current state of the wiki to the local hard drive by using a special Firefox extension called Tiddlyfox. If this extension is not available, the savers canSave method would return false. A saver with a lower priority would then ask the user to save the current state as a new HTML file.
+
 \subsection{UI-Elements 1}
 \todo{widgets}
 \todo{themes}
