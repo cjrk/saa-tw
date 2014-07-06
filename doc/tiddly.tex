@@ -200,19 +200,20 @@ var Widget = require("$:/core/modules/widgets/widget.js").widget;
 ButtonWidget.prototype = new Widget();
 \end{lstlisting}
 
+In most cases, these module tiddlers are packed into a plug-in.
+Following the "everything is a tiddler" concept, a plug-in is a tiddler, which contains a bunch of other tiddlers. These tiddlers are first converted into a JSON structure which then becomes the body of the plug-in tiddler.
+This is not restricted to module tiddlers. A plug-in can contain any tiddlers. This way a developer can put for example simple modules, widgets, UI parts written with WikiText, even new filter operators or extensions to the WikiText parser into a plug-in tiddler. In fact the whole TW core is provided as a single plug-in. Tiddlers provided in a plug-in are called shadow tiddlers and can not be edited. Instead, when trying to edit a shadow tiddler, a new tiddler with the same name is created which then "overrides" the shadow tiddler.
+
 Instead of requiring a specific module directly, a module developer can specify the type of the module he is developing by setting the field "module-type" of the containing tiddler.
 For example, by providing a module-type of "saver", TW knows that this module implements a way of saving the whole wiki and when the user clicks on the save button, TW automaticly considers the provided module to save the current state.
 
-In most cases, these module tiddlers are packed into a plug-in.
-Following the "everything is a tiddler" concept, a plug-in is a tiddler, which contains a bunch of other tiddlers. These tiddlers are first converted into a JSON structure which then becomes the body of the plug-in tiddler.
-This is not restricted to module tiddlers. A plug-in can contain any tiddlers. This way a developer can put for example simple modules, widgets, UI parts written with WikiText, even new filter operators or extensions to the WikiText parser into a plug-in tiddler. In fact the whole TW core is provided as a single plug-in.
+\subsection{Building a single file application with modules 1}
+TW is built up from the micro kernel and uses the module mechanism to provide various ways of loading and saving tiddlers, including the ability to load and save to a single HTML file.
+Furthermore a developer can extend the application by providing modules with a specific module-type. TW searches for modules with these specific module-types and handles them accordingly.
 
-\subsection{Core Modules 1}
-\todo{storage?}
-\todo{deserializer, saver, syncer}
-\todo{parser}
-\todo{filter}
-\todo{data types?}
+The last sequence of the boot kernel is to execute startup modules. One of these startup modules ("load-modules") is responsible for registering some modules with specific module types at the right place. For example, the methods exported by wikimethod modules are put in \textit{\$tw.Wiki.prototype}. Other startup modules build up the initial UI and link events to certain modules.
+
+
 \subsection{UI-Elements 1}
 \todo{widgets}
 \todo{themes}
