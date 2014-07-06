@@ -234,6 +234,31 @@ $tw.boot.executeNextStartupTask();
 
 \textit{\$tw.boot.executeNextStartupTask()} will execute the remaining startup modules in \textit{\$tw.boot.remainingStartupModules}. A startup module can export the variables \textit{before} and/or \textit{after}, each containing an array of names of other startup modules. \textit{\$tw.boot.executeNextStartupTask()} will use this information to execute the modules in the correct order. Startup modules can be marked as synchronous by exporting \textit{synchronous = true}. If synchronous is set to false, the startup function is executed with an callback function as the first argument. The startup function has to call this function to allow subsequent startup modules to get executed. This is necessary when the startup function itself uses asynchronous calls.
 
+\subsubsection*{Deserializer Modules}
+Modules with \textit{module-type: tiddlerdeserializer} can provide functions to create tiddlers out of any textual representation. Each function must be associated with a type like \textit{application/json} or \textit{text/html}.
+They get the textual representation of the tiddlers, some default field values and the type of the text block as arguments. They return an array of JavaScript objects representing the resulting tiddlers.
+
+\begin{lstlisting}[caption={Definition of a deserializer function},label=lst:deserializer-function]
+// From deserializers.js:
+exports["application/x-tiddler-html-div"] = function(text,fields) {
+	return [parseTiddlerDiv(text,fields)]; // returning a single tiddler
+};
+\end{lstlisting}
+
+Deserializer modules are loaded at startup time and are used by the wiki store.
+
+\begin{lstlisting}[caption={Startup module registering deserializer to the tiddler store},label=lst:deserializer-register]
+// From load-modules.js
+$tw.modules.applyMethods("tiddlerdeserializer",$tw.Wiki.tiddlerDeserializerModules);
+\end{lstlisting}
+
+Some fundamental deserializer functions are provided and loaded in the boot kernel. For example a tiddlerdeserializer associated with the type \textit{(DOM)} is registered and used by the boot kernel to load tiddlers from certain HTML elements.
+
+\begin{lstlisting}[caption={Boot kernel using deserializer to create tiddlers from corrent dom tree},label=lst:deserializer-dom]
+// From boot.js:
+$tw.wiki.addTiddlers($tw.wiki.deserializeTiddlers("(DOM)",document.getElementById(containerIds[t])));
+\end{lstlisting}
+
 \subsection{UI-Elements 1}
 \todo{widgets}
 \todo{themes}
