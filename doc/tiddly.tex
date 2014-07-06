@@ -149,7 +149,7 @@ And because anything is a tiddler, this brings the ability to drag and drop indi
 \subsection{The WikiText concept 1}
 The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}}, but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing.\cite{TIDD:WIKITEXT} The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
 During the saving process these tags renders to HTML elements for example:
-\begin{lstlisting}[caption={Example use of WikiText},label=lst:data-div]
+\begin{lstlisting}[caption={Example use of WikiText},label=lst:wikitext]
 WikiText:--- 
 Renders as:
 HTML:<hr>
@@ -158,7 +158,7 @@ Renders as:
 HTML:<img src="http://tiddlywiki.com/favicon.ico">
 \end{lstlisting}
 Furthermore the WikiText is used to access the widgets which are integrated in the application.These widgets are used to enhance the the WikiText with a rich functionality. Widgets are based on the HTML-Syntax but always starts with a \$.
-\begin{lstlisting}[caption={Example use of widgets within WikiText},label=lst:data-div]
+\begin{lstlisting}[caption={Example use of widgets within WikiText},label=lst:widgets]
 WikiText:
 <$button message="tw-close-tiddler">Close Me!</$button> 
 \end{lstlisting}
@@ -213,6 +213,26 @@ Furthermore a developer can extend the application by providing modules with a s
 
 The last sequence of the boot kernel is to execute startup modules. One of these startup modules ("load-modules") is responsible for registering some modules with specific module types at the right place. For example, the methods exported by wikimethod modules are put in \textit{\$tw.Wiki.prototype}. Other startup modules build up the initial UI and link events to certain modules.
 
+\subsubsection*{Startup Modules}
+Modules with the \textit{module-type: startup} have to export a  function named \textit{startup} and may export a name property to identify this module. The startup function will be executed by the boot kernel at the end of the boot process.
+
+\begin{lstlisting}[caption={Boot kernel processing startup modules},label=lst:startup-modules]
+// From boot.js:
+// Gather up any startup modules
+$tw.boot.remainingStartupModules = []; // Array of startup modules
+$tw.modules.forEachModuleOfType("startup",function(title,module) {
+	if(module.startup) {
+		$tw.boot.remainingStartupModules.push(module);
+	}
+});
+// Keep track of the startup tasks that have been executed
+$tw.boot.executedStartupModules = Object.create(null);
+$tw.boot.disabledStartupModules = $tw.boot.disabledStartupModules || [];
+// Repeatedly execute the next eligible task
+$tw.boot.executeNextStartupTask();
+\end{lstlisting}
+
+\textit{\$tw.boot.executeNextStartupTask()} will execute the remaining startup modules in \textit{\$tw.boot.remainingStartupModules}. A startup module can export the variables \textit{before} and/or \textit{after}, each containing an array of names of other startup modules. \textit{\$tw.boot.executeNextStartupTask()} will use this information to execute the modules in the correct order. Startup modules can be marked as synchronous by exporting \textit{synchronous = true}. If synchronous is set to false, the startup function is executed with an callback function as the first argument. The startup function has to call this function to allow subsequent startup modules to get executed. This is necessary when the startup function itself uses asynchronous calls.
 
 \subsection{UI-Elements 1}
 \todo{widgets}
