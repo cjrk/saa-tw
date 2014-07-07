@@ -147,6 +147,7 @@ HTML5 standard comes with a native drag and drop feature. TW uses this feature a
 And because anything is a tiddler, this brings the ability to drag and drop individual wiki pages, JavaScript modules, UI components and whole plug-ins between TW instances.
 
 \subsection{The WikiText concept 1}
+\label{sec:wikitext}
 The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}}, but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing.\cite{TIDD:WIKITEXT} The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
 During the saving process these tags renders to HTML elements for example:
 \begin{lstlisting}[caption={Example use of WikiText},label=lst:wikitext]
@@ -207,7 +208,7 @@ This is not restricted to module tiddlers. A plug-in can contain any tiddlers. T
 Instead of requiring a specific module directly, a module developer can specify the type of the module he is developing by setting the field "module-type" of the containing tiddler.
 For example, by providing a module-type of "saver", TW knows that this module implements a way of saving the whole wiki and when the user clicks on the save button, TW automaticly considers the provided module to save the current state.
 
-\subsection{Building a single file application with modules 1}
+\subsection{Using Modules to build a Single File Application 1}
 TW is built up from the micro kernel and uses the module mechanism to provide various ways of loading and saving tiddlers, including the ability to load and save to a single HTML file.
 Furthermore a developer can extend the application by providing modules with a specific module-type. TW searches for modules with these specific module-types and handles them accordingly.
 
@@ -281,12 +282,11 @@ In contrast to tiddlerdeserializers and savers, a module with \textit{module-typ
 
 A global module (syncer.js) registers itself at the wiki store to listen for \textit{change} events and tries to sync the changes using one of the available syncadaptor modules.
 
-Beside these fundamental module-types there are additional module types:
+Beside these fundamental module-types there are other backend related module types:
 
 \begin{description}
 \item[command] Provide commands which can be used on the command line when executing TW in Node.js.
 \item[config] Values exported by these modules are put to a central place \textit{\$tw.config}
-\item[macro] Can provide sophisticated macros written in JavaScript for use in WikiText.
 
 \item[tiddlermethod] Provide functions which are added to the tiddler prototype.
 \item[wikimethod] Provide functions which are added to the wiki store prototype.
@@ -294,14 +294,35 @@ Beside these fundamental module-types there are additional module types:
 \item[filteroperator] Provide operators to the filter language.
 \item[allfilteroperator] Provide operands for the \textbf{all} filteroperator.
 \item[isfilteroperator] Provide operands for the \textbf{is} filteroperator.
-\item[parser] Provide parsers for specific content types.
-\item[wikirule] Provide additional rules to the WikiText language.
 \end{description}
 
-\subsection{UI-Elements 1}
-\todo{widgets}
-\todo{themes}
-\todo{story-thingy}
+\subsection{Using Modules to extend the UI 1}
+
+As described earlier the UI is build with the WikiText markup language including a HTML-like notation to embed widgets (see section \ref{sec:wikitext}).
+TW already provides some widgets like buttons, lists and powerful reveal and transclusion mechanisms. TW users can use this combination of WikiText and widgets to easily build their own solutions directly into their TW instance. Although there might be situations where the provided widgets are not sufficient.
+In this case a developer can extends TW with additional widgets by providing a module with \textit{module-type: widget}.
+
+Widget modules can export one or more JavaScript objects representing the widget class.
+This widget class must inherit from the base widget class and can override some of it's methods.
+The most important methods to override are \textit{execute}, \textit{render} and \textit{refresh}.
+These three methods illustrate the life cycle of a widget. When the render method is called, it first should run the execute method to calculate the internal state of the widget.
+After the internal state is calculated, the render method builds DOM elements, eventually renders it's child widgets and puts itself in the provided DOM tree.
+The refresh method is responsible for the selective updating of widgets. When something in the wiki store changes, the refresh method is called with a list of the changed tiddlers.
+The refresh method must check, if this change inflicts itself or its children and if necessary, it should re-render itself.
+
+The widget base type provides various methods to simplify this process.
+Additionally the widget base type is the point in TW, where the widget modules are loaded and instances are created.
+When the base widget is initialized, it creates a list of available widget classes.
+Part of a widgets state calculation is to transform the render-tree nodes of its children to widget instances.
+This is done by the \textit{makeChildWidgets} method of the widget base class which uses the name of the widget tag\footnote{The wikitext parser recognizes widget tags by the \$ sign and puts the name of the tag in the parser tree.} to choose the right widget class.
+
+Widget modules are only one way to extend the UI. Other UI related module types are:
+\begin{description}
+\item[wikirule] Provide additional rules to the WikiText language.
+\item[macro] Can provide sophisticated macros written in JavaScript for use in WikiText.
+\item[parser] Provide parsers for specific content types.
+\end{description}
+
 \subsection{Developing a own Plugin 1-2}
 \todo{tutorial}
 \todo{our widget}
