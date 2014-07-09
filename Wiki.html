@@ -4330,7 +4330,7 @@ $tw.wiki.addTiddlers($tw.wiki.deserializeTiddlers(&quot;(DOM)&quot;,document.get
 ```
 </pre>
 </div>
-<div created="20140704111744852" current-tiddler="Datamodel" modified="20140709175520639" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
+<div created="20140704111744852" current-tiddler="Microkernel Description" modified="20140709175932146" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
 <pre>[
     {
         &quot;title&quot;: &quot;GettingStarted&quot;
@@ -10157,6 +10157,29 @@ $tw.wiki.addTiddlers($tw.wiki.deserializeTiddlers(&quot;(DOM)&quot;,document.get
     },
     {
         &quot;title&quot;: &quot;Datamodel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NewToc&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 303.98333740234375,
+            &quot;left&quot;: 165,
+            &quot;width&quot;: 74,
+            &quot;right&quot;: 239,
+            &quot;bottom&quot;: 321.98333740234375,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Description'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Description'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;
     }
 ]</pre>
 </div>
@@ -11814,7 +11837,7 @@ It is running under Node.js or in a HTML5 Browser. The Bootkernel just loads eno
 
 {{StartupTimeline.png}}</pre>
 </div>
-<div created="20140709110225227" creator="Christian Heigele, Christian Jurke" modified="20140709114003737" modifier="Christian Heigele, Christian Jurke" tags="doc new" title="Microkernel Description">
+<div created="20140709110225227" creator="Christian Heigele, Christian Jurke" modified="20140709175932141" modifier="Christian Heigele, Christian Jurke" tags="doc new" title="Microkernel Description">
 <pre>The tiddlyWiki application is based on a microkernel architecture, that means it seperatesa minimal functional core from the extended functionality. The microkernel provides the functionality to load external extensions to extend its core features.  The tiddlyWiki microkernel provides a few helper methods but the main task of the tiddlyWiki kernel is to provide a basic functionality for storing data and loading the extension plug-ins. Within the tiddlyWiki architecture everything is stored as a tiddler. How the architecture of tiddlyWiki stores his data during the runtime of the applciation is shown in [[Datamodel]], but the kernel provides these datamodel. It also prepares the functionality to store and create these tiddlers. In favour its creates a store to manage the tiddlers during the runtime. Without any extensions the architecture is not able to persist the tiddlers, this means the data is only hold in the RAM. 
 Here are some example interfaces for working with tiddlers in memory which are provided by the kernel:
 
@@ -11823,7 +11846,7 @@ Here are some example interfaces for working with tiddlers in memory which are p
 *$tw.Wiki.deleteTiddler = function(title)
 *$tw.Wiki.getTiddler = function(title)
 
-In order to load extention plug-ins the kernel preperas a interface to load and execute these plug-ins. Therefor the microkernel loads some deserializer to extract different type of tiddlers e.g. from the ~HTML-File. These deserializer is needed because after packaging a TiddlyWiki application every plugin is stored as a tiddler within the HTML-Document.
+In order to load extention plug-ins the kernel preperas a interface to load and execute these plug-ins. Therefor the microkernel loads some deserializer to extract different type of tiddlers e.g. from the ~HTML-File. These deserializer is needed because after packaging a TiddlyWiki application every plugin is stored as a tiddler within the ~HTML-Document. This feature is specified in the [[Module System]] section.
 
 The image below shows the startup process of the tiddlyWiki-kernel. The bootprefix is responsible for preparing the kernel to boot on different engines e.g. browsers and node.js. Afterwards the main Boot proces which includes the microkernel, with the startup-method, is startet. After successfully runing these steps the main architecture is loaded. The last step is to run the startup modules. These modules are discriped later. But in prief these is the point where the tiddlyWiki microkernel can be extended by own functionality. Every module marked as &quot;startup&quot; is started after finishing the boot process of the kernel.
 
@@ -12220,7 +12243,7 @@ Startup modules can be marked as synchronous by exporting ``synchronous = true``
 <div created="20140708092958308" creator="C" modified="20140708093008100" modifier="Christian Heigele, Christian Jurk" title="$:/status/UserName">
 <pre>Christian Heigele, Christian Jurke</pre>
 </div>
-<div list="Datamodel NewToc [[Table of Contents]]" title="$:/StoryList">
+<div list="NewToc [[Microkernel Description]] [[Table of Contents]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20140708084850294" creator="Christian Heigele, Christian Jurke" modified="20140708172130575" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Syncadaptor">
