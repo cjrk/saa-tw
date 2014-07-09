@@ -4260,8 +4260,8 @@ As shown in the picture below, every change at the DOM triggers an event which c
 
 {{TiddlyWikiArchitecture.svg}}</pre>
 </div>
-<div created="20140709111543896" creator="Christian Heigele, Christian Jurke" modified="20140709114940844" modifier="Christian Heigele, Christian Jurke" tags="doc new" title="Datamodel">
-<pre>The microkernel creates a tiddlWiki specifik datastructure called tiddler. Here you have to seperate the different definition of tiddlers. In the architectual view a tiddler is a javascript object holding some data. In the overall concept a tiddler is similar to a wiki page in a normal wiki application like wikipedia. In this section we descripe the architectual view of a tiddler. The listing below shows the JSON representation of a tiddler object. During the runtime of the tiddlyWiki everything is saved an object like this. Without any plugin-ins the architecture is not able to persist any kind of data. All the data is stored in a store. This store is a javascript object. This store is constructed like a Map. Every tiddler is saved by the name as the key. 
+<div created="20140709111543896" creator="Christian Heigele, Christian Jurke" modified="20140709175520631" modifier="Christian Heigele, Christian Jurke" tags="doc new" title="Datamodel">
+<pre>The microkernel creates a tiddlWiki specifik datastructure called tiddler. Here you have to seperate the different definition of tiddlers. In the architectual view a tiddler is a javascript object holding some data. In the overall concept a tiddler is similar to a wiki page in a normal wiki application like wikipedia. In this section we descripe the architectual view of a tiddler. The listing below shows the JSON representation of a tiddler object. During the runtime of the tiddlyWiki everything is saved an object like this. Without any plugin-ins the architecture is not able to persist any kind of data. All the data is stored in a store. This store is a javascript object. This store is constructed like a Map. Every tiddler has its name as the key in the map. The tiddler concept is the main datamodel within tiddlyWiki, everything from data up to plug-ins is stored as a tiddler.
 
 ```
 {&quot;fields&quot;:{
@@ -4330,7 +4330,7 @@ $tw.wiki.addTiddlers($tw.wiki.deserializeTiddlers(&quot;(DOM)&quot;,document.get
 ```
 </pre>
 </div>
-<div created="20140704111744852" current-tiddler="Datamodel" modified="20140709114940851" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
+<div created="20140704111744852" current-tiddler="Datamodel" modified="20140709175520639" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
 <pre>[
     {
         &quot;title&quot;: &quot;GettingStarted&quot;
@@ -10083,6 +10083,80 @@ $tw.wiki.addTiddlers($tw.wiki.deserializeTiddlers(&quot;(DOM)&quot;,document.get
     },
     {
         &quot;title&quot;: &quot;Datamodel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NewToc&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 183.98333740234375,
+            &quot;left&quot;: 165,
+            &quot;width&quot;: 108,
+            &quot;right&quot;: 273,
+            &quot;bottom&quot;: 201.98333740234375,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot; Datamodel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 365.98333740234375,
+            &quot;left&quot;: 165,
+            &quot;width&quot;: 69,
+            &quot;right&quot;: 234,
+            &quot;bottom&quot;: 383.98333740234375,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Datamodel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 262.48333740234375,
+            &quot;left&quot;: 770,
+            &quot;width&quot;: 69,
+            &quot;right&quot;: 839,
+            &quot;bottom&quot;: 280.48333740234375,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'NewToc'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'NewToc'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NewToc&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Datamodel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 39.51666259765625,
+            &quot;left&quot;: 165,
+            &quot;width&quot;: 69,
+            &quot;right&quot;: 234,
+            &quot;bottom&quot;: 57.51666259765625,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Datamodel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Datamodel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Datamodel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Datamodel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Datamodel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Datamodel&quot;
     }
 ]</pre>
 </div>
@@ -11778,7 +11852,7 @@ This is not restricted to module tiddlers. A plug-in can contain any tiddlers. T
 Instead of requiring a specific module directly, a module developer can specify the type of the module he is developing by setting the field &quot;module-type&quot; of the containing tiddler.
 For example, by providing a module-type of &quot;saver&quot;, TW knows that this module implements a way of saving the whole wiki and when the user clicks on the save button, TW automaticly considers the provided module to save the current state.</pre>
 </div>
-<div created="20140708154220184" creator="Christian Heigele, Christian Jurke" modified="20140709114058938" modifier="Christian Heigele, Christian Jurke" title="NewToc">
+<div created="20140708154220184" creator="Christian Heigele, Christian Jurke" modified="20140709175300133" modifier="Christian Heigele, Christian Jurke" title="NewToc">
 <pre>* [[Introduction]]
 * [[TiddlyWiki - A quick Overview]]
 ** [[TiddlyWiki as Single Page Application]]
@@ -11791,7 +11865,7 @@ For example, by providing a module-type of &quot;saver&quot;, TW knows that this
 
 * [[Microkernel Architecture]]
 ** [[Microkernel|Microkernel Description]]
-** [[ Datamodel | Datamodel]]
+** [[ Datamodel |Datamodel]]
 ** [[Module System]]
 
 * [[TiddlyWiki Core Application]]
@@ -12146,7 +12220,7 @@ Startup modules can be marked as synchronous by exporting ``synchronous = true``
 <div created="20140708092958308" creator="C" modified="20140708093008100" modifier="Christian Heigele, Christian Jurk" title="$:/status/UserName">
 <pre>Christian Heigele, Christian Jurke</pre>
 </div>
-<div list="Datamodel NewToc [[Microkernel and Datamodel]] [[Table of Contents]]" title="$:/StoryList">
+<div list="Datamodel NewToc [[Table of Contents]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20140708084850294" creator="Christian Heigele, Christian Jurke" modified="20140708172130575" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Syncadaptor">
@@ -12245,8 +12319,8 @@ $body$
 <div created="20140630122250422" creator="Christian Heigele, Christian Jurke" modified="20140709111555737" modifier="Christian Heigele, Christian Jurke" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20140708082554643" creator="Christian Heigele, Christian Jurke" modified="20140708182714241" modifier="Christian Heigele, Christian Jurke" title="$:/temp/search">
-<pre></pre>
+<div created="20140708082554643" creator="Christian Heigele, Christian Jurke" modified="20140709175246060" modifier="Christian Heigele, Christian Jurke" title="$:/temp/search">
+<pre>new</pre>
 </div>
 <div created="20140708083754576" modified="20140708090217085" tags="doc" title="The Heart of TiddlyWiki (Boot-Kernel)">
 <pre>The boot-kernel is responsible for creating a barbone TW environment. It is running under Node.js or in a HTML5 Browser. The Bootkernel just loads enough functionality to load the modules containing the main logic of the application. This boot-kernel contains a few helper methods, the module mechanism as well as the function to create a tiddler and manage them. The boot-kernel also creates the barbone wiki store, which holds all the information of the wiki during the runtime. After creating the store, the boot-kernel is in charge of decrypting the encrypted tiddlers and extracting all the tiddlers e.g. the core module tiddlers embedded in the DOM structure of the HTML file. Furthermore the boot kernel offers the functionality to load tiddlers from a file, when you run TW with Node.js. All other functionality which is not a part of the boot kernel is added dynamically by modules and plugins. The boot kernel is able to load the core plugins and perform the startup plugins. The core contains the startup modules shown in the picture below.
