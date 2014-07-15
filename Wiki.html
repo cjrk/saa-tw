@@ -153,6 +153,8 @@ Error message and password prompt
 
 <li>$:/languages/de-DE</li>
 
+<li>Messages</li>
+
 <li>Microkernel</li>
 
 <li>Microkernel and Datamodel</li>
@@ -164,6 +166,8 @@ Error message and password prompt
 <li>Modularization</li>
 
 <li>Module System</li>
+
+<li>NEW NEW TOC</li>
 
 <li>overview.svg</li>
 
@@ -229,6 +233,10 @@ Error message and password prompt
 
 <li>$:/state/toc/[[Introduction to the Module- and Plugin-Concept]]-{981044769}</li>
 
+<li>$:/state/toc/Microkernel Architecture-{-1412715295}</li>
+
+<li>$:/state/toc/Microkernel Architecture-{2003309353}</li>
+
 <li>$:/state/toc/The Heart of ~TiddlyWiki (~Boot-Kernel)-{-2064384541}</li>
 
 <li>$:/state/toc/The Heart of ~TiddlyWiki (~Boot-Kernel)-{981044769}</li>
@@ -248,6 +256,20 @@ Error message and password prompt
 <li>$:/state/toc/[[Tiddler as the key element ]]-{981044769}</li>
 
 <li>$:/state/toc/[[Tiddler as the key element]]-{981044769}</li>
+
+<li>$:/state/toc/~TiddlyWiki - A quick Overview ~TiddlyWiki-{-1412715295}</li>
+
+<li>$:/state/toc/~TiddlyWiki - A quick Overview ~TiddlyWiki-{2003309353}</li>
+
+<li>$:/state/toc/TiddlyWiki - A quick Overview ~TiddlyWiki-{2003309353}</li>
+
+<li>$:/state/toc/~TiddlyWiki Core Application-{-1412715295}</li>
+
+<li>$:/state/toc/~TiddlyWiki Core Application-{1790648780}</li>
+
+<li>$:/state/toc/~TiddlyWiki Core Application-{2003309353}</li>
+
+<li>$:/state/toc/TiddlyWiki Core Application-{2003309353}</li>
 
 <li>$:/state/toc/Timeline of the startup Process-{-2064384541}</li>
 
@@ -4293,7 +4315,7 @@ As shown in the picture below, every change at the DOM triggers an event which c
 
 {{TiddlyWikiArchitecture.svg}}</pre>
 </div>
-<div created="20140709111543896" creator="Christian Heigele, Christian Jurke" modified="20140714200313576" modifier="Christian Heigele, Christian Jurke" tags="doc new [[Microkernel Architecture]]" title="Datamodel">
+<div chapter.of="Microkernel Architecture" created="20140709111543896" creator="Christian Heigele, Christian Jurke" modified="20140715083802104" modifier="Christian Heigele, Christian Jurke" sub.num="2" tags="doc new [[Microkernel Architecture]]" title="Datamodel">
 <pre>The micro-kernel creates a TiddlyWiki specific data-structure called tiddler. Here you have to separate the different definition of tiddlers. In the architectural view a tiddler is a JavaScript object holding some data. In the overall concept a tiddler is similar to a wiki page in a normal wiki application like wikipedia. In this section we describe the architectural view of a tiddler. The listing below shows the JSON representation of a tiddler object. During the runtime of the TiddlyWiki everything is saved an object like this. Without any plug-in the architecture is not able to persist any kind of data. All the data is stored in a store. This store is a JavaScript object. This store is constructed like a Map with a bunch of key value pairs. Every tiddler has its name as the key in the map and the JavaScript-Object as the value. The tiddler concept is the main data-model within TiddlyWiki, everything from data up to plug-ins is stored as a tiddler.
 
 ```
@@ -4308,7 +4330,7 @@ As shown in the picture below, every change at the DOM triggers an event which c
 }
 ```</pre>
 </div>
-<div created="20140708082053686" creator="Christian Heigele, Christian Jurke" modified="20140708163713263" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Data Persistence">
+<div chapter.of="TiddlyWiki - A quick Overview" created="20140708082053686" creator="Christian Heigele, Christian Jurke" modified="20140715083413705" modifier="Christian Heigele, Christian Jurke" sub.num="3" tags="doc" title="Data Persistence">
 <pre>The next important part of the application are deserializers. Deserializers are responsible to load tiddlers from various sources. One of the deserializers provided by the microkernel for example can load new tiddlers from the current DOM tree.
 The counterpart of deserializers are saver.
 A saver is used to save the complete store or the complete TW for that matter at once. After a user made changes to some tiddlers, this method can be used to download the current state of the store as a completely new TW application.
@@ -4333,8 +4355,8 @@ Now when a tiddler is changed and these changes are written to the store, the sy
 The Div-Area has the same attributes like the standard tillder fields, listed in  (\prettyref{list:TiddlerFields}), all attributes which are not in this list are parsed as a custom field. The only required attribute is the name attribute, all other attributes are optional.\\
 With a activated encryption the data is stored in a special Div-Area called &quot;encryptedStoreArea&quot;. TiddlyWiki uses the Standford [[JavaScript Crypto Libary|http://bitwiseshiftleft.github.io/sjcl/]]. The encrypted Tiddlers are saved in a JSON string within this Div-Area.</pre>
 </div>
-<div created="20140702181557450" creator="Christian Heigele, Christian Jurke" modified="20140714171743055" modifier="Christian Heigele, Christian Jurke" title="$:/DefaultTiddlers">
-<pre>[[Toc]]</pre>
+<div created="20140702181557450" creator="Christian Heigele, Christian Jurke" modified="20140715080532927" modifier="Christian Heigele, Christian Jurke" title="$:/DefaultTiddlers">
+<pre>[[NEW NEW TOC]]</pre>
 </div>
 <div created="20140708084404389" creator="Christian Heigele, Christian Jurke" modified="20140708171412306" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Deserializer">
 <pre>Modules with ``module-type: tiddlerdeserializer`` can provide functions to create tiddlers out of any textual representation. Each function must be associated with a type like ``application/json`` or ``text/html``.
@@ -4381,7 +4403,7 @@ The functions providing the event system are added via the [[wikimethod module t
 !! System Tiddlers
 {{System Tiddlers}}</pre>
 </div>
-<div created="20140704111744852" current-tiddler="Microkernel Architecture" modified="20140714200925729" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
+<div created="20140704111744852" current-tiddler="NEW NEW TOC" modified="20140715084305745" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
 <pre>[
     {
         &quot;title&quot;: &quot;GettingStarted&quot;
@@ -11742,6 +11764,1318 @@ The functions providing the event system are added via the [[wikimethod module t
     },
     {
         &quot;title&quot;: &quot;Microkernel Architecture&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Toc&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Table of Contents&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 282.48333740234375,
+            &quot;left&quot;: 770,
+            &quot;width&quot;: 113,
+            &quot;right&quot;: 883,
+            &quot;bottom&quot;: 300.48333740234375,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Table of Contents&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Table of Contents'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Table of Contents'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Table of Contents&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Table of Contents&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Introduction&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 219.81666564941406,
+            &quot;left&quot;: 125,
+            &quot;width&quot;: 75,
+            &quot;right&quot;: 200,
+            &quot;bottom&quot;: 237.81666564941406,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Introduction&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 221.81666564941406,
+            &quot;left&quot;: 125,
+            &quot;width&quot;: 186,
+            &quot;right&quot;: 311,
+            &quot;bottom&quot;: 239.81666564941406,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 186.81666564941406,
+            &quot;left&quot;: 165,
+            &quot;width&quot;: 74,
+            &quot;right&quot;: 239,
+            &quot;bottom&quot;: 204.81666564941406,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;WikiText Markup&quot;
+    },
+    {
+        &quot;title&quot;: &quot;WikiText Markup&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 416,
+            &quot;left&quot;: 165,
+            &quot;width&quot;: 74,
+            &quot;right&quot;: 239,
+            &quot;bottom&quot;: 434,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 201.81666564941406,
+            &quot;left&quot;: 165,
+            &quot;width&quot;: 74,
+            &quot;right&quot;: 239,
+            &quot;bottom&quot;: 219.81666564941406,
+            &quot;height&quot;: 18
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Messages&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Messages&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/ControlPanel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 144.48333740234375,
+            &quot;left&quot;: 799.3333129882812,
+            &quot;width&quot;: 29.333343505859375,
+            &quot;right&quot;: 828.6666259765625,
+            &quot;bottom&quot;: 172.38333129882812,
+            &quot;height&quot;: 27.899993896484375
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 204.10000610351562,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 168,
+            &quot;right&quot;: 253,
+            &quot;bottom&quot;: 223.10000610351562,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki Core Application&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 242.71665954589844,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 191,
+            &quot;right&quot;: 276,
+            &quot;bottom&quot;: 261.7166748046875,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki Core Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki Core Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki Core Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki Core Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki Core Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 243.21665954589844,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 259.2166748046875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Module System&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 279.2166748046875,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 88,
+            &quot;right&quot;: 212.93333435058594,
+            &quot;bottom&quot;: 295.2166748046875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Module System&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 204.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 212,
+            &quot;right&quot;: 336.933349609375,
+            &quot;bottom&quot;: 220.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki as Single Page Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki as Single Page Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 56.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 75.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 240.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 256.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 240.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 256.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 240.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 256.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 74.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 90.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 240.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 256.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 213.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 229.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 152.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 212,
+            &quot;right&quot;: 336.933349609375,
+            &quot;bottom&quot;: 168.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki as Single Page Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki as Single Page Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 240.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 256.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 204.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 212,
+            &quot;right&quot;: 336.933349609375,
+            &quot;bottom&quot;: 220.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 160.39999389648438,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 106,
+            &quot;right&quot;: 230.93333435058594,
+            &quot;bottom&quot;: 176.39999389648438,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 100.39999389648438,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 106,
+            &quot;right&quot;: 230.93333435058594,
+            &quot;bottom&quot;: 116.39999389648438,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'The User Interface'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'The User Interface'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 206.39999389648438,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 106,
+            &quot;right&quot;: 230.93333435058594,
+            &quot;bottom&quot;: 222.39999389648438,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'The User Interface'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'The User Interface'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Modularization&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 276.6000061035156,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 83,
+            &quot;right&quot;: 207.93333435058594,
+            &quot;bottom&quot;: 292.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Modularization'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Modularization'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Modularization&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 240.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 256.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Modularization&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 186.13333129882812,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 83,
+            &quot;right&quot;: 207.93333435058594,
+            &quot;bottom&quot;: 202.13333129882812,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 81.13333129882812,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 106,
+            &quot;right&quot;: 230.93333435058594,
+            &quot;bottom&quot;: 97.13333129882812,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 167.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 212,
+            &quot;right&quot;: 336.933349609375,
+            &quot;bottom&quot;: 183.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki as Single Page Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki as Single Page Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki as Single Page Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 222.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 238.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 99.60000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 99,
+            &quot;right&quot;: 223.93333435058594,
+            &quot;bottom&quot;: 115.60000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Data Persistence'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Data Persistence&quot;
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 258.6000061035156,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 106,
+            &quot;right&quot;: 230.93333435058594,
+            &quot;bottom&quot;: 274.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'The User Interface'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'The User Interface'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;The User Interface&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Modularization&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 276.6000061035156,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 83,
+            &quot;right&quot;: 207.93333435058594,
+            &quot;bottom&quot;: 292.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Modularization'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Modularization'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Modularization&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Tiddler as Basic Element&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 294.6000061035156,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 142,
+            &quot;right&quot;: 266.933349609375,
+            &quot;bottom&quot;: 310.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Tiddler as Basic Element'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Tiddler as Basic Element'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Tiddler as Basic Element&quot;
+    },
+    {
+        &quot;title&quot;: &quot;WikiText Markup&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 312.6000061035156,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 95,
+            &quot;right&quot;: 219.93333435058594,
+            &quot;bottom&quot;: 328.6000061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'WikiText Markup'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'WikiText Markup'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;WikiText Markup&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 165.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 184.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 330.1000061035156,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 168,
+            &quot;right&quot;: 253,
+            &quot;bottom&quot;: 349.1000061035156,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 113.48333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 204,
+            &quot;right&quot;: 289,
+            &quot;bottom&quot;: 132.48333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 183.85000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 68,
+            &quot;right&quot;: 192.93333435058594,
+            &quot;bottom&quot;: 199.85000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Description'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Description'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Description&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Datamodel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 220.85000610351562,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 62,
+            &quot;right&quot;: 186.93333435058594,
+            &quot;bottom&quot;: 236.85000610351562,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Datamodel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Datamodel'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Datamodel&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Module System&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 314.8500061035156,
+            &quot;left&quot;: 124.93333435058594,
+            &quot;width&quot;: 88,
+            &quot;right&quot;: 212.93333435058594,
+            &quot;bottom&quot;: 330.8500061035156,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Module System'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Module System'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Module System&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki Core Application&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 422.7166748046875,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 191,
+            &quot;right&quot;: 276,
+            &quot;bottom&quot;: 441.7166748046875,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki Core Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki Core Application'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 128.98333740234375,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 168,
+            &quot;right&quot;: 253,
+            &quot;bottom&quot;: 147.98333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki Core Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'NEW NEW TOC'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'NEW NEW TOC'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 194.98333740234375,
+            &quot;left&quot;: 955,
+            &quot;width&quot;: 14,
+            &quot;right&quot;: 969,
+            &quot;bottom&quot;: 213.98333740234375,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/MoreSideBar/Recent&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 450.66668701171875,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 207,
+            &quot;right&quot;: 292,
+            &quot;bottom&quot;: 469.66668701171875,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/MoreSideBar/Recent&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/SideBarLists&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 528.1666870117188,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 155,
+            &quot;right&quot;: 240,
+            &quot;bottom&quot;: 547.1666870117188,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/SideBarLists&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/SideBar/Open&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 548.6666870117188,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 162,
+            &quot;right&quot;: 247,
+            &quot;bottom&quot;: 567.6666870117188,
+            &quot;height&quot;: 19
+        }
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/SideBar/Open&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of '$:/core/ui/SideBar/Open'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of '$:/core/ui/SideBar/Open'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/SideBar/Open&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/core/ui/SideBar/Open&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/AdvancedSearch&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'NEW NEW TOC'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'NEW NEW TOC'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
+    },
+    {
+        &quot;title&quot;: &quot;NEW NEW TOC&quot;
     }
 ]</pre>
 </div>
@@ -13378,7 +14712,10 @@ The aim of this documentation is to overview the idea behind the TiddlyWiki appl
     }
 }</pre>
 </div>
-<div created="20140708081952235" creator="Christian Heigele, Christian Jurke" modified="20140708162426865" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Microkernel">
+<div created="20140715080302422" creator="Christian Heigele, Christian Jurke" modified="20140715080302422" modifier="Christian Heigele, Christian Jurke" title="Messages">
+<pre></pre>
+</div>
+<div chapter.of="TiddlyWiki - A quick Overview" created="20140708081952235" creator="Christian Heigele, Christian Jurke" modified="20140715083358087" modifier="Christian Heigele, Christian Jurke" sub.num="2" tags="doc" title="Microkernel">
 <pre>In the universe of TW everything is a tiddler.
 Even the application logic is stored in tiddlers that are marked as &quot;application/javascript&quot;.
 These tiddlers, which contain application logic, are called modules and a ~CommonJS compatible module system is responsible for assembling the individual modules into the TW application.
@@ -13399,17 +14736,18 @@ It is running under Node.js or in a HTML5 Browser. The Bootkernel just loads eno
 
 {{StartupTimeline.png}}</pre>
 </div>
-<div created="20140714195430737" creator="Christian Heigele, Christian Jurke" description="This section describes the architecture of TiddlyWiki" modified="20140714200925722" modifier="Christian Heigele, Christian Jurke" sectionnumber="2" tags="section doc" title="Microkernel Architecture">
+<div created="20140714195430737" creator="Christian Heigele, Christian Jurke" description="This section describes the architecture of TiddlyWiki" modified="20140715083715032" modifier="Christian Heigele, Christian Jurke" sectionnumber="2" tags="section doc" title="Microkernel Architecture">
 <pre>This section describes the architecture of the ~TiddlyWiki-kernel. ~TiddlyWiki is based on a micro-kernel which provides only a small stack of functions. This design decision was made to introduce a cleaner mechanism for customization of ~TiddlyWiki. This section also describes the data-model of ~TiddlyWiki called tiddler. And it gives a overview to the modul system which developers can use to extend the functionality of the ~TiddlyWiki application.
 
-__''Section Content:''__
-&lt;$list filter=&quot;[!has[draft.of]tag[doc]tag[Microkernel Architecture]]&quot;&gt;
+&lt;$list filter=&quot;[!has[draft.of]has[chapter.of]chapter.of[Microkernel Architecture]tag[doc]sort[sub.num]]&quot;&gt;
 
- *&lt;$link to={{!!title}}&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;
 
-&lt;/$list&gt;</pre>
+! &lt;$view field=&quot;title&quot;/&gt;
+{{!!text}}
+&lt;/$list&gt;
+</pre>
 </div>
-<div created="20140709110225227" creator="Christian Heigele, Christian Jurke" modified="20140714200240147" modifier="Christian Heigele, Christian Jurke" tags="doc new [[Microkernel Architecture]]" title="Microkernel Description">
+<div chapter.of="Microkernel Architecture" created="20140709110225227" creator="Christian Heigele, Christian Jurke" modified="20140715083740785" modifier="Christian Heigele, Christian Jurke" sub.num="1" tags="doc new [[Microkernel Architecture]]" title="Microkernel Description">
 <pre>The TiddlyWiki application is based on a micro-kernel architecture, that means it separate minimal functional core from the extended functionality. The micro-kernel provides the functionality to load external extensions to extend its core features. The TiddlyWiki micro-kernel provides a few helper methods but the main task of the TiddlyWiki kernel is to provide a basic functionality for storing data and loading the extension plug-ins. Within the TiddlyWiki architecture everything is stored as a tiddler. How the architecture of TiddlyWiki stores his data during the runtime of the application is shown in [[Datamodel]], but the kernel provides these data-model. It also prepares the functionality to store and create these tiddlers. In favour its creates a store to manage the tiddlers during the runtime. Without any extensions the architecture is not able to persist the tiddlers, this means the data is only hold in the RAM. Here are some example interfaces for working with tiddlers in memory which are provided by the kernel:
 
 *$tw.Tiddler = function(/* [fields,] fields */)
@@ -13425,13 +14763,13 @@ The image below shows the startup process of the TiddlyWiki-kernel. The bootpref
 
 {{StartupTimeline.png}}</pre>
 </div>
-<div created="20140708082305109" creator="Christian Heigele, Christian Jurke" modified="20140708164950497" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Modularization">
+<div chapter.of="TiddlyWiki - A quick Overview" created="20140708082305109" creator="Christian Heigele, Christian Jurke" modified="20140715083449669" modifier="Christian Heigele, Christian Jurke" sub.num="5" tags="doc" title="Modularization" type="">
 <pre>The whole application is basically built from three parts. At first, the microkernel provides the basic functionality to handle tiddlers. The second part are tiddlers representing core functionality. These are for example modules which extend the store by more sophisticated functions, UI tiddlers and widget modules, a WikiText parser, sophisticated deserializers, savers, syncadapters, etc.
 These core modules are provided as plug-in to the microkernel. Consequently, a plug-in is a single tiddler which itself contains multiple tiddlers, forming the plug-in. Each of this tiddler might be a module providing new functionality (i.e. a module tiddler marked with &quot;module-type: saver&quot; can extend the application with new methods of saving the current wiki state.).
 Tiddlers provided in plug-ins are called shadow tiddlers. They are immutable and can not be edited or deleted  but we can create a new tiddler with the same name to override a shadow tiddler.
 </pre>
 </div>
-<div created="20140708084103508" creator="Christian Heigele, Christian Jurke" modified="20140714200301538" modifier="Christian Heigele, Christian Jurke" tags="doc [[Microkernel Architecture]]" title="Module System">
+<div chapter.of="Microkernel Architecture" created="20140708084103508" creator="Christian Heigele, Christian Jurke" modified="20140715083827304" modifier="Christian Heigele, Christian Jurke" sub.num="3" tags="doc [[Microkernel Architecture]]" title="Module System">
 <pre>After the boot kernel provides the functions used to load tiddlers, the rest of the TW application is loaded as modules.
 A module is a tiddler which has the type ``application/javascript`` and contains CommonJS compatible JavaScript code. This means a single module provides its public structures and functions in a variable called ``export``. Other modules can obtain these structures and functions by using a global ``require`` function.
 
@@ -13447,6 +14785,69 @@ This is not restricted to module tiddlers. A plug-in can contain any tiddlers. T
 
 Instead of requiring a specific module directly, a module developer can specify the type of the module he is developing by setting the field &quot;module-type&quot; of the containing tiddler.
 For example, by providing a module-type of &quot;saver&quot;, TW knows that this module implements a way of saving the whole wiki and when the user clicks on the save button, TW automaticly considers the provided module to save the current state.</pre>
+</div>
+<div created="20140715074724076" creator="Christian Heigele, Christian Jurke" modified="20140715084247905" modifier="Christian Heigele, Christian Jurke" tags="$:/tags/SideBar" title="NEW NEW TOC">
+<pre>\define toc-heading(caption,body)
+&lt;$reveal type=&quot;nomatch&quot; state=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; text=&quot;show&quot;&gt;
+&lt;$button set=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; setTo=&quot;show&quot; class=&quot;btn-invisible&quot;&gt;{{$:/core/images/right-arrow}} $caption$
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; text=&quot;show&quot;&gt;
+&lt;$button set=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; setTo=&quot;hide&quot; class=&quot;btn-invisible&quot;&gt;{{$:/core/images/down-arrow}} $caption$
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; text=&quot;show&quot; retain=&quot;yes&quot; animate=&quot;yes&quot;&gt;
+
+$body$
+
+&lt;/$reveal&gt;
+\end
+&lt;div class=&quot;tw-table-of-contents&quot;&gt;
+
+# [[Introduction]]
+
+# [[TiddlyWiki - A quick Overview]]
+## &lt;&lt;toc-heading &quot;~TiddlyWiki - A quick Overview ~TiddlyWiki&quot; &quot;
+##[[TiddlyWiki as Single Page Application]]
+## [[Microkernel]]
+##[[Data Persistence]]
+##[[The User Interface]]
+##[[Modularization]]
+##[[Tiddler as Basic Element]]
+##[[WikiText Markup]]
+&quot;&gt;&gt;
+# [[Microkernel Architecture]]
+## &lt;&lt;toc-heading &quot;Microkernel Architecture&quot; &quot;
+##[[Microkernel|Microkernel Description]]
+##[[Datamodel]]
+##[[Module System]]
+&quot;&gt;&gt;
+# [[TiddlyWiki Core Application]]
+## &lt;&lt;toc-heading &quot;~TiddlyWiki Core Application&quot; &quot;
+##[[Startup Process]]
+##[[Extending the Store]]
+###[[Event Mechanism]]
+###[[Caching]]
+###[[System Tiddlers]]
+###[[Tags and Filter Mechanism]]
+##[[Extended Persistence]]
+###[[Deserializer]]
+###[[Saver]]
+###[[Syncadaptor]]
+##[[UI and Rendering Pipeline]]
+###[[Wikitext]]
+###[[Parser]]
+###[[Widgets]]
+####[[Messages]]
+####[[Selective Update]]
+###[[Transclusion and TextReference]]
+###[[RooTiddlyWikiidget and Rendering Startup]]
+###[[Navigator Widget]]
+###[[Draft Mechanism]]
+&quot;&gt;&gt;
+#[[Conclusion]]
+&lt;/div&gt;
+</pre>
 </div>
 <div created="20140708155403254" creator="Christian Heigele, Christian Jurke" modified="20140708155403254" modifier="Christian Heigele, Christian Jurke" title="overview.svg" type="image/svg+xml">
 <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
@@ -13674,7 +15075,7 @@ Startup modules can be marked as synchronous by exporting ``synchronous = true``
 <div modified="20140708174952966" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab-{-425860255}">
 <pre>$:/core/ui/ControlPanel/Advanced/EditorTypes</pre>
 </div>
-<div modified="20140710185149057" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab-{694242977}">
+<div modified="20140715084143200" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab-{694242977}">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20140704111744855" modified="20140708174954119" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab-{794734817}">
@@ -13683,8 +15084,8 @@ Startup modules can be marked as synchronous by exporting ``synchronous = true``
 <div modified="20140708160851431" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab/moresidebar-{947362856}">
 <pre>$:/core/ui/MoreSideBar/Orphans</pre>
 </div>
-<div created="20140704111744855" modified="20140714172012033" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab/sidebar-{312696086}">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20140704111744855" modified="20140715084250336" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab/sidebar-{312696086}">
+<pre>NEW NEW TOC</pre>
 </div>
 <div modified="20140708154715964" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/Architecture of the single page application ~TiddlyWiki-{-2064384541}">
 <pre>show</pre>
@@ -13734,6 +15135,12 @@ Startup modules can be marked as synchronous by exporting ``synchronous = true``
 <div modified="20140708100959979" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/[[Introduction to the Module- and Plugin-Concept]]-{981044769}">
 <pre>show</pre>
 </div>
+<div modified="20140715080726165" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/Microkernel Architecture-{-1412715295}">
+<pre>show</pre>
+</div>
+<div modified="20140715080506916" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/Microkernel Architecture-{2003309353}">
+<pre>hide</pre>
+</div>
 <div modified="20140708155755722" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/The Heart of ~TiddlyWiki (~Boot-Kernel)-{-2064384541}">
 <pre>show</pre>
 </div>
@@ -13764,6 +15171,27 @@ Startup modules can be marked as synchronous by exporting ``synchronous = true``
 <div modified="20140708101852667" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/[[Tiddler as the key element]]-{981044769}">
 <pre>hide</pre>
 </div>
+<div modified="20140715084048720" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/~TiddlyWiki - A quick Overview ~TiddlyWiki-{-1412715295}">
+<pre>hide</pre>
+</div>
+<div modified="20140715080504350" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/~TiddlyWiki - A quick Overview ~TiddlyWiki-{2003309353}">
+<pre>hide</pre>
+</div>
+<div modified="20140715075924121" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/TiddlyWiki - A quick Overview ~TiddlyWiki-{2003309353}">
+<pre>show</pre>
+</div>
+<div modified="20140715084311604" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/~TiddlyWiki Core Application-{-1412715295}">
+<pre>hide</pre>
+</div>
+<div modified="20140715084255566" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/~TiddlyWiki Core Application-{1790648780}">
+<pre>hide</pre>
+</div>
+<div modified="20140715080516090" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/~TiddlyWiki Core Application-{2003309353}">
+<pre>hide</pre>
+</div>
+<div modified="20140715075726418" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/TiddlyWiki Core Application-{2003309353}">
+<pre>show</pre>
+</div>
 <div modified="20140708155828154" modifier="Christian Heigele, Christian Jurke" title="$:/state/toc/Timeline of the startup Process-{-2064384541}">
 <pre>show</pre>
 </div>
@@ -13791,7 +15219,7 @@ Startup modules can be marked as synchronous by exporting ``synchronous = true``
 <div created="20140708092958308" creator="C" modified="20140708093008100" modifier="Christian Heigele, Christian Jurk" title="$:/status/UserName">
 <pre>Christian Heigele, Christian Jurke</pre>
 </div>
-<div list="Toc [[Microkernel Architecture]]" title="$:/StoryList">
+<div list="[[NEW NEW TOC]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20140708084850294" creator="Christian Heigele, Christian Jurke" modified="20140708172130575" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Syncadaptor">
@@ -13893,17 +15321,17 @@ $body$
 &lt;/div&gt;
 </pre>
 </div>
-<div created="20140704112158645" creator="Christian Heigele, Christian Jurke" modified="20140710185156534" modifier="Christian Heigele, Christian Jurke" title="$:/temp/advancedsearch">
-<pre>load-modules</pre>
+<div created="20140704112158645" creator="Christian Heigele, Christian Jurke" modified="20140715084214864" modifier="Christian Heigele, Christian Jurke" title="$:/temp/advancedsearch">
+<pre>open</pre>
 </div>
-<div created="20140701161751467" creator="Christian Heigele, Christian Jurke" modified="20140714200156808" modifier="Christian Heigele, Christian Jurke" title="$:/temp/newfieldname">
+<div created="20140701161751467" creator="Christian Heigele, Christian Jurke" modified="20140715083823277" modifier="Christian Heigele, Christian Jurke" title="$:/temp/newfieldname">
 <pre></pre>
 </div>
-<div created="20140630122250422" creator="Christian Heigele, Christian Jurke" modified="20140714200310445" modifier="Christian Heigele, Christian Jurke" title="$:/temp/NewTagName">
+<div created="20140630122250422" creator="Christian Heigele, Christian Jurke" modified="20140715084243824" modifier="Christian Heigele, Christian Jurke" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20140708082554643" creator="Christian Heigele, Christian Jurke" modified="20140714200333249" modifier="Christian Heigele, Christian Jurke" title="$:/temp/search">
-<pre>Section Overview</pre>
+<div created="20140708082554643" creator="Christian Heigele, Christian Jurke" modified="20140715084052581" modifier="Christian Heigele, Christian Jurke" title="$:/temp/search">
+<pre></pre>
 </div>
 <div created="20140708083754576" modified="20140708090217085" tags="doc" title="The Heart of TiddlyWiki (Boot-Kernel)">
 <pre>The boot-kernel is responsible for creating a barbone TW environment. It is running under Node.js or in a HTML5 Browser. The Bootkernel just loads enough functionality to load the modules containing the main logic of the application. This boot-kernel contains a few helper methods, the module mechanism as well as the function to create a tiddler and manage them. The boot-kernel also creates the barbone wiki store, which holds all the information of the wiki during the runtime. After creating the store, the boot-kernel is in charge of decrypting the encrypted tiddlers and extracting all the tiddlers e.g. the core module tiddlers embedded in the DOM structure of the HTML file. Furthermore the boot kernel offers the functionality to load tiddlers from a file, when you run TW with Node.js. All other functionality which is not a part of the boot kernel is added dynamically by modules and plugins. The boot kernel is able to load the core plugins and perform the startup plugins. The core contains the startup modules shown in the picture below.
@@ -13963,7 +15391,7 @@ This can be used as a tutorial for building your own plug-ins and will show how 
 <div created="20140708085435652" creator="Christian Heigele, Christian Jurke" description="description" modified="20140708145509664" modifier="Christian Heigele, Christian Jurke" tags="doc section" title="The TiddlyWiki data management concept">
 <pre>This section descripes how the data of the wiki is stored within Tiddlywiki during the runtime. And how the complete wiki is persisted.</pre>
 </div>
-<div created="20140708082154372" creator="Christian Heigele, Christian Jurke" modified="20140708163909411" modifier="Christian Heigele, Christian Jurke" tags="doc" title="The User Interface">
+<div chapter.of="TiddlyWiki - A quick Overview" created="20140708082154372" creator="Christian Heigele, Christian Jurke" modified="20140715083432391" modifier="Christian Heigele, Christian Jurke" sub.num="4" tags="doc" title="The User Interface">
 <pre>Following the &quot;anything is a tiddler&quot; concept, even the UI consists of tiddlers.
 This is possible because tiddlers can not only contain plain text or JavaScript (modules) but they also can contain a special markup text called WikiText.
 By using WikiText the user can put markup elements like tables or images in a tiddler.
@@ -13972,7 +15400,7 @@ checkboxes, dynamic lists etc.
 In most cases, these widgets are used to directly modify or represent the information contained in other tiddlers.
 If a tiddler is changed and this change should reflect in an UI element e.g. a widget, a process called selective update takes place. Selective updating means when a tiddler or a set of tiddlers changes, each widget is asked, if changes to this tiddlers would affect its appearance. If so, the respective widget is re-rendered otherwise it remains unchanged.</pre>
 </div>
-<div created="20140708082703387" creator="Christian Heigele, Christian Jurke" modified="20140708165836746" modifier="Christian Heigele, Christian Jurke" tags="doc" title="Tiddler as Basic Element">
+<div chapter.of="TiddlyWiki - A quick Overview" created="20140708082703387" creator="Christian Heigele, Christian Jurke" modified="20140715083525960" modifier="Christian Heigele, Christian Jurke" sub.num="6" tags="doc" title="Tiddler as Basic Element">
 <pre>By managing nearly every part of the application as tiddlers, the application is only needed to provide some basic functionality to manage the individual tiddlers, load and persist them, render them to HTML output and provide a way to register for the changes made to tiddlers.
 This way the whole wiki application can be build from these simple concepts.
 Plug-ins can be used to add new functionality to the existing modules or even to replace individual tiddlers/modules,
@@ -14006,10 +15434,17 @@ Another example which shows how the &quot;anything is a tiddler&quot; concept le
 HTML5 standard comes with a native drag and drop feature. TW uses this feature and makes it possible to drag and drop a tiddler from one instance to another.
 And because anything is a tiddler, this brings the ability to drag and drop individual wiki pages, JavaScript modules, UI components and whole plug-ins between TW instances.</pre>
 </div>
-<div created="20140708082524269" creator="Christian Heigele, Christian Jurke" description="This section descripes the idea of the TiddlyWiki application" modified="20140710084419828" modifier="Christian Heigele, Christian Jurke" sectionnumber="1" tags="doc section" title="TiddlyWiki - A quick Overview">
+<div created="20140708082524269" creator="Christian Heigele, Christian Jurke" description="This section descripes the idea of the TiddlyWiki application" modified="20140715083613736" modifier="Christian Heigele, Christian Jurke" sectionnumber="1" tags="doc section" title="TiddlyWiki - A quick Overview">
 <pre>Traditional web applications are bound to ~HTTP-Concepts, including stateless requests to transfer data. In these applications a state is often emulated by the use of sessions, which need to be handled on the client and especially on the server side.
 These restrictions often lead to a fragmented user experience because the user interface is rebuilt on every data transfer.
-TW tries to overcome these restrictions and the resulting disadvantages by building on few but basic concepts which loosen the coupling of HTTP and the actual application, eliminating the need of state emulation and resulting in a wiki style single page application with the ability to run in an offline environment.</pre>
+TW tries to overcome these restrictions and the resulting disadvantages by building on few but basic concepts which loosen the coupling of HTTP and the actual application, eliminating the need of state emulation and resulting in a wiki style single page application with the ability to run in an offline environment.
+
+&lt;$list filter=&quot;[!has[draft.of]has[chapter.of]chapter.of[TiddlyWiki - A quick Overview]tag[doc]sort[sub.num]]&quot;&gt;
+
+
+! &lt;$view field=&quot;title&quot;/&gt;
+{{!!text}}
+&lt;/$list&gt;</pre>
 </div>
 <div created="20140708085509438" modified="20140708085509438" title="TiddlyWikiArchitecture.svg" type="image/svg+xml">
 <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
@@ -14235,7 +15670,7 @@ TW tries to overcome these restrictions and the resulting disadvantages by build
     &lt;/g&gt;
 &lt;/svg&gt;</pre>
 </div>
-<div created="20140708081759619" creator="Christian Heigele, Christian Jurke" modified="20140708162244552" modifier="Christian Heigele, Christian Jurke" tags="doc" title="TiddlyWiki as Single Page Application">
+<div chapter.of="TiddlyWiki - A quick Overview" created="20140708081759619" creator="Christian Heigele, Christian Jurke" modified="20140715083319984" modifier="Christian Heigele, Christian Jurke" sub.num="1" tags="doc" title="TiddlyWiki as Single Page Application">
 <pre>TW builds on some basic concepts. First, TW should not be perceived as a dynamic web page like traditional server-side generated web pages. Instead TW can be perceived as an application which is written entirely in ~JavaScript and uses HTML5 and CSS3 to render a GUI. This way TW can be executed in any ~JavaScript environment like a browser or a node.js instance, while keeping the advantages of a simple application.
 One of these advantages is, that TW has no need to emulate an application state, as a traditional web application would need to do.
 
@@ -14250,7 +15685,7 @@ Just by building on these simple and basic concepts,
 These points already enable TW to be used as an offline-enabled single file web application.
 Also, by using a server side node.js environment running the same ~TiddlyWiki application, TW can be used as an online web application. This is realized on server-side by providing an additional module to persist tiddlers into plain text files and on client-side by a module syncing the local data store with the node.js server.</pre>
 </div>
-<div created="20140710183759647" creator="Christian Heigele, Christian Jurke" modified="20140711175724455" modifier="Christian Heigele, Christian Jurke" tags="doc new" title="TiddlyWiki Core Application">
+<div created="20140710183759647" creator="Christian Heigele, Christian Jurke" modified="20140715083948728" modifier="Christian Heigele, Christian Jurke" tags="doc new" title="TiddlyWiki Core Application">
 <pre>The microkernel builds up the base functionality to manage tiddlers by providing a basic wiki store and a barebone tiddler model.
 The microkernel can also load a set of (decrypted) tiddlers and provides a module system, enabling a developer to extend the kernel and add functionality with module tiddlers and plug-ins.
 
@@ -14260,8 +15695,12 @@ After describing new functionality added directly to the wiki store
 we show how the TiddlyWiki-Core realises persistence of tiddlers.
 The last part describes how TiddlyWiki builds an UI out of tiddlers and WikiText.
 
-! Extending the Store
-{{Extending the Store}}</pre>
+&lt;$list filter=&quot;[!has[draft.of]has[chapter.of]chapter.of[TiddlyWiki Core Application]tag[doc]sort[sub.num]]&quot;&gt;
+
+
+! &lt;$view field=&quot;title&quot;/&gt;
+{{!!text}}
+&lt;/$list&gt;</pre>
 </div>
 <div created="20140708083929806" modified="20140708090225382" tags="doc" title="Timeline of the startup Process">
 <pre>This section shows a quick and short overview over the startup process of TW, from the first step of the boot mechanism until the loading of the different startup modules. The image shown below  shall point out the main parts of this startup-process.
@@ -14344,7 +15783,7 @@ The last sequence of the boot kernel is to execute startup modules. One of these
 <div created="20140710185051844" creator="Christian Heigele, Christian Jurke" modified="20140710185339032" modifier="Christian Heigele, Christian Jurke" title="wikimethod module type">
 <pre>The startup module [[$:/core/modules/startup/load-modules.js]]  in the TiddlyWiki core plug-in loads all modules of type``wikimethod`` and puts their exported functions into the wiki store.</pre>
 </div>
-<div created="20140708083145150" creator="Christian Heigele, Christian Jurke" modified="20140708165920195" modifier="Christian Heigele, Christian Jurke" tags="doc" title="WikiText Markup">
+<div chapter.of="TiddlyWiki - A quick Overview" created="20140708083145150" creator="Christian Heigele, Christian Jurke" modified="20140715083545384" modifier="Christian Heigele, Christian Jurke" sub.num="7" tags="doc" title="WikiText Markup">
 <pre>The WikiText is a markup language, created especially for the requirements of the TiddlyWiki application. It is based on [[Markdown|http://daringfireball.net/projects/markdown]], but extended with some TiddlyWiki specific features.  On one hand its a text-to-HTML conversion language and on the other hand its used to provide the interactive features of TiddlyWiki. The aim of this language is to allow the user of the software to focus on the writing. The WikiText is used to format Tiddlers within the TiddlyWiki application. The tags of the WikiText syntax can be used within the standard text input field. 
 During the saving process these tags renders to HTML elements for example:
 
