@@ -4122,7 +4122,7 @@ Error message and password prompt
 [[Conclusion]]
 </pre>
 </div>
-<div created="20140704111744852" current-tiddler="TiddlyWiki Core Application" modified="20140717203802375" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
+<div created="20140704111744852" current-tiddler="$:/ControlPanel" modified="20140717211828249" modifier="Christian Heigele, Christian Jurke" title="$:/HistoryList" type="application/json">
 <pre>[
     {
         &quot;title&quot;: &quot;GettingStarted&quot;
@@ -16079,6 +16079,109 @@ Error message and password prompt
     },
     {
         &quot;title&quot;: &quot;TiddlyWiki Core Application&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Introduction&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Conclusion&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 866.5,
+            &quot;left&quot;: 770,
+            &quot;width&quot;: 79,
+            &quot;right&quot;: 849,
+            &quot;bottom&quot;: 887.5,
+            &quot;height&quot;: 21
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Conclusion'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Conclusion'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Conclusion&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Introduction'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Introduction'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Introduction&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 350.5333251953125,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 186,
+            &quot;right&quot;: 271,
+            &quot;bottom&quot;: 371.5333251953125,
+            &quot;height&quot;: 21
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'TiddlyWiki - A quick Overview'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;TiddlyWiki - A quick Overview&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 467.5333251953125,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 154,
+            &quot;right&quot;: 239,
+            &quot;bottom&quot;: 488.5333251953125,
+            &quot;height&quot;: 21
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Microkernel Architecture'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Microkernel Architecture&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Conclusion&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 353.5333251953125,
+            &quot;left&quot;: 85,
+            &quot;width&quot;: 70,
+            &quot;right&quot;: 155,
+            &quot;bottom&quot;: 374.5333251953125,
+            &quot;height&quot;: 21
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Conclusion'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'Conclusion'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Conclusion&quot;
+    },
+    {
+        &quot;title&quot;: &quot;$:/ControlPanel&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 144.48333740234375,
+            &quot;left&quot;: 799.3333129882812,
+            &quot;width&quot;: 29.333343505859375,
+            &quot;right&quot;: 828.6666259765625,
+            &quot;bottom&quot;: 170.88333129882812,
+            &quot;height&quot;: 26.399993896484375
+        }
     }
 ]</pre>
 </div>
@@ -17720,7 +17823,7 @@ Error message and password prompt
 <div created="20140704111744855" modified="20140717195603442" modifier="Christian Heigele, Christian Jurke" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20140704111744855" modified="20140717195555113" modifier="Christian Heigele, Christian Jurke" title="$:/state/sidebar">
+<div created="20140704111744855" modified="20140717211819892" modifier="Christian Heigele, Christian Jurke" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20140708174952966" modifier="Christian Heigele, Christian Jurke" title="$:/state/tab-{-425860255}">
@@ -18527,8 +18630,22 @@ The microkernel calls ``clearGlobalCache()`` and ``clearCache(tiddlertitle)`` wh
 The core's cache mechanism overwrites this functions.
 The functions providing the cache system are added via the [[wikimethod module type]].</pre>
 </div>
-<div created="20140717203330824" creator="Christian Heigele, Christian Jurke" description="A briefly summary about this documentation" modified="20140717203528840" modifier="Christian Heigele, Christian Jurke" sectionnumber="5" tags="section doc" title="Conclusion">
-<pre></pre>
+<div created="20140717203330824" creator="Christian Heigele, Christian Jurke" description="A briefly summary about this documentation bringing out the advantages, disadvantages and experiences with TiddlyWiki." modified="20140717211803349" modifier="Christian Heigele, Christian Jurke" sectionnumber="5" tags="section doc" title="Conclusion">
+<pre>
+TiddlyWiki consists in its heart only of a basic microkernel providing bare tiddlerstore and module system.
+It is written in ~JavaScript and suited to run in a browser or as node.js application.
+The core plug-in extends the microkernel with powerful functions from a central event system to a sophisticated widget system transforming WikiText to dynamic HTML.
+Because of it's microkernel architecture the application is highly customizable. The plug-in system not only allows to add new modules but also to override existing modules. Most of the components don't refer directly to modules but load them by type, allowing developers to inject additional modules including new saver implementations, widgets or even rules for the WikiText parser.
+The user interface of TiddlyWiki is written in WikiText and can be customized with the same language, a user normally uses when just writing wiki entries.
+
+A drawback of the core plug-in is it's high complexity. While the microkernel provides just the bare some bare functions and structures, the core plug-in adds a whole bunch of components at once.
+It can be challenging to decompose the core architecture and understand the connections between the components. This documentation could only cover the most important parts.
+This gives a developer the choice of building a whole new application on the microkernel or building the application on the core plug-in, including all modules and UI tiddlers.
+
+In conclusion, TiddlyWiki is a interesting piece of software.
+The focus on tiddlers, the functionality provided in the core and the fact that the core comes with a full blown wiki application puts TiddlyWiki into a personal information management domain, especially when using TiddlyWiki as a single file application storing code and data in a single HTML file.
+But the highly customizable nature makes TiddlyWiki perfect for this exact domain. A casual user can organize information with tags and metadata and customize the UI to a grade, that he is able to implement and test his own workflows just by using WikiText.
+~JavaScript developers can add whole new features and create completely new single page applications by building on the microkernel or customizing the core plug-in.</pre>
 </div>
 <div created="20140708085451064" modified="20140708085602231" tags="doc" title="Data Management during Runtime">
 <pre>During the runtime the data of Tiddlywiki is stored in javascript objects. These objects are synchronized with the DOM-Representation of Tiddlywiki. This means every change of the original data of a Tiddler, fires an event which changes all DOM-Representations of the Tiddler and the javascript object. The barbone Wiki store is created during the boot process and is kept in a object called \$tw.Wiki. This object contains amongst others a hashmap of the different Tiddlers of Tiddlywiki. The Hashmap is used to store the javascript object representation of the different Tiddlers. Furthermore this object is used to manage the tiddlers during runtime, it provides methods for adding tiddlers, search tiddlers by name and delete tiddlers.
@@ -18687,7 +18804,7 @@ It is running under Node.js or in a HTML5 Browser. The Bootkernel just loads eno
 
 {{StartupTimeline.png}}</pre>
 </div>
-<div created="20140714195430737" creator="Christian Heigele, Christian Jurke" description="This section describes the architecture of TiddlyWiki" modified="20140715083715032" modifier="Christian Heigele, Christian Jurke" sectionnumber="2" tags="section doc" title="Microkernel Architecture">
+<div created="20140714195430737" creator="Christian Heigele, Christian Jurke" description="The heart of TiddlyWiki is it's microkernel. This section will describe what bare mechanisms are included in the microkernel and how additional modules are loaded." modified="20140717211633467" modifier="Christian Heigele, Christian Jurke" sectionnumber="2" tags="section doc" title="Microkernel Architecture">
 <pre>This section describes the architecture of the ~TiddlyWiki-kernel. ~TiddlyWiki is based on a micro-kernel which provides only a small stack of functions. This design decision was made to introduce a cleaner mechanism for customization of ~TiddlyWiki. This section also describes the data-model of ~TiddlyWiki called tiddler. And it gives a overview to the modul system which developers can use to extend the functionality of the ~TiddlyWiki application.
 
 &lt;$list filter=&quot;[!has[draft.of]has[chapter.of]chapter.of[Microkernel Architecture]tag[doc]sort[sub.num]]&quot;&gt;
@@ -19498,7 +19615,7 @@ And because anything is a tiddler, this brings the ability to drag and drop indi
 <div created="20140715095058100" creator="Christian Heigele, Christian Jurke" modified="20140715095112034" modifier="Christian Heigele, Christian Jurke" tags="doc" title="TiddlyWiki">
 <pre>{{TiddlyWiki - A quick Overview}}</pre>
 </div>
-<div created="20140708082524269" creator="Christian Heigele, Christian Jurke" description="This section descripes the idea of the TiddlyWiki application" modified="20140715094441044" modifier="Christian Heigele, Christian Jurke" sectionnumber="1" tags="doc section" title="TiddlyWiki - A quick Overview">
+<div created="20140708082524269" creator="Christian Heigele, Christian Jurke" description="This section describes the idea of the TiddlyWiki application. This should give the reader a overview over what TiddlyWiki consists of give a brief introduction to the topics of the main documentation." modified="20140717211405842" modifier="Christian Heigele, Christian Jurke" sectionnumber="1" tags="doc section" title="TiddlyWiki - A quick Overview">
 <pre>Traditional web applications are bound to ~HTTP-Concepts, including stateless requests to transfer data. In these applications a state is often emulated by the use of sessions, which need to be handled on the client and especially on the server side.
 These restrictions often lead to a fragmented user experience because the user interface is rebuilt on every data transfer.
 TiddlyWiki tries to overcome these restrictions and the resulting disadvantages by building on few but basic concepts which loosen the coupling of HTTP and the actual application, eliminating the need of state emulation and resulting in a wiki style single page application with the ability to run in an offline environment.
